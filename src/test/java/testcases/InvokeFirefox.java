@@ -1,5 +1,6 @@
 package testcases;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -10,7 +11,7 @@ public class InvokeFirefox {
 		
 		//System.setProperty("webdriver.gecko.driver", "C:\\Users\\hello\\Documents\\SELENIUM\\Browser_Executables\\geckodriver.exe");
 		WebDriverManager.firefoxdriver().setup();
-		FirefoxDriver driver = new FirefoxDriver();
+		WebDriver driver = new FirefoxDriver();
 		driver.get("http://way2automation.com/");
 		
 	}

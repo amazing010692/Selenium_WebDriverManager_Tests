@@ -1,5 +1,6 @@
 package testcases;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -18,7 +19,7 @@ public class InvokeOpera {
 		capabilities.setCapability(OperaOptions.CAPABILITY, options);
 		
 		WebDriverManager.operadriver().setup();
-		OperaDriver driver = new OperaDriver(options);
+		WebDriver driver = new OperaDriver(options);
 		driver.get("http://way2automation.com/");
 
 	}

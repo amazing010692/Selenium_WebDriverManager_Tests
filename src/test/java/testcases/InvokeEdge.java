@@ -1,5 +1,6 @@
 package testcases;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -10,7 +11,7 @@ public class InvokeEdge {
 		
 		//System.setProperty("webdriver.edge.driver", "C:\\Users\\hello\\Documents\\SELENIUM\\Browser_Executables\\msedgedriver.exe");
 		WebDriverManager.edgedriver().setup();
-		EdgeDriver driver = new EdgeDriver();
+		WebDriver driver = new EdgeDriver();
 		driver.get("http://way2automation.com/");
 
 	}
