@@ -1,5 +1,6 @@
 package testcases;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -16,7 +17,7 @@ public class InvokeIE {
 		//System.setProperty("webdriver.ie.driver", "C:\\Users\\hello\\Documents\\SELENIUM\\Browser_Executables\\IEDriverServer.exe");
 		WebDriverManager.iedriver().setup();
 		@SuppressWarnings("deprecation")
-		InternetExplorerDriver driver = new InternetExplorerDriver(capabilities);
+		WebDriver driver = new InternetExplorerDriver(capabilities);
 		driver.get("http://way2automation.com/");		
 
 	}
