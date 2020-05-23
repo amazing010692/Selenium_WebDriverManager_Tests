@@ -3,6 +3,7 @@ package testcases;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,6 +14,8 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -55,7 +58,13 @@ public class TestFindingElements {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		//WebDriverWait wait = new WebDriverWait(driver, 20);
+		
+		@SuppressWarnings("deprecation")
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(10, TimeUnit.SECONDS)
+				.pollingEvery(2, TimeUnit.SECONDS)
+				.ignoring(NoSuchElementException.class);
 		
 		WebElement username = driver.findElement(By.id("identifierId"));
 		username.sendKeys("java@way2automation.com");
