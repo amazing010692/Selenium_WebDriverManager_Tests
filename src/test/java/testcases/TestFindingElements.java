@@ -22,7 +22,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestFindingElements {
 	
-	public static String browser = "chrome"; //excel sheet
+	public static String browser = "opera"; //excel sheet
 	public static WebDriver driver;
 
 	public static void main(String[] args) throws InterruptedException {
@@ -64,6 +64,7 @@ public class TestFindingElements {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				.withTimeout(10, TimeUnit.SECONDS)
 				.pollingEvery(2, TimeUnit.SECONDS)
+				.withMessage("User defined - Timed out after 30 seconds")
 				.ignoring(NoSuchElementException.class);
 		
 		WebElement username = driver.findElement(By.id("identifierId"));
