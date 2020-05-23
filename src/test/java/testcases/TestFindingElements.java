@@ -1,5 +1,6 @@
 package testcases;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -22,7 +23,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestFindingElements {
 	
-	public static String browser = "opera"; //excel sheet
+	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
 
 	public static void main(String[] args) throws InterruptedException {
@@ -60,10 +61,9 @@ public class TestFindingElements {
 		
 		//WebDriverWait wait = new WebDriverWait(driver, 20);
 		
-		@SuppressWarnings("deprecation")
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(10, TimeUnit.SECONDS)
-				.pollingEvery(2, TimeUnit.SECONDS)
+				.withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofSeconds(2))
 				.withMessage("User defined - Timed out after 30 seconds")
 				.ignoring(NoSuchElementException.class);
 		
