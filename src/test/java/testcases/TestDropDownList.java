@@ -1,5 +1,6 @@
 package testcases;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -66,6 +67,19 @@ public class TestDropDownList {
 		//select.selectByVisibleText("Eesti");
 		//select.selectByValue("hi");
 		select.selectByIndex(0);
+		
+		List<WebElement> values = driver.findElements(By.tagName("option"));
+		//In a list, the 1st value is always at the 0th index, and the last value is n-1 
+		System.out.println("Total values are: " + values.size());
+		
+		//Get the 7th index, or the 8th value in the list of languages
+		System.out.println(values.get(7).getText());
+		
+		//Print the list of languages in a Wikipedia page.
+		for(int i = 0; i < values.size(); i++ ) {
+			//System.out.println(values.get(i).getText());
+			System.out.println(values.get(i).getAttribute("lang"));
+		}
 		
 		Thread.sleep(3000);
 		driver.close();
