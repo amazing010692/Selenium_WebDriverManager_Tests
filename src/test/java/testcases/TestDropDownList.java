@@ -19,7 +19,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestDropDownList {
 
-	public static String browser = "firefox"; //excel sheet
+	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
 
 	public static void main(String[] args) throws InterruptedException {
@@ -79,6 +79,26 @@ public class TestDropDownList {
 		for(int i = 0; i < values.size(); i++ ) {
 			//System.out.println(values.get(i).getText());
 			System.out.println(values.get(i).getAttribute("lang"));
+		}
+		
+		//Block section links
+		WebElement block = driver.findElement(By.xpath("//*[@id=\'www-wikipedia-org\']/div[6]"));
+		//Get the number of links within the block section only.
+		List<WebElement> links_section = block.findElements(By.tagName("a"));
+		System.out.println("----Printling Links in the Block Section----");
+		System.out.println("Total links are: " + links_section.size());
+		//Print all the links within the block section only.
+		for(WebElement linkBlock : links_section) {
+			System.out.println(linkBlock.getText() + " -- URL IS -- " + linkBlock.getAttribute("href"));
+		}
+		
+		//Get the number of links in Wikipedia page.
+		List<WebElement> links = driver.findElements(By.tagName("a"));
+		System.out.println("----Printling Links in the whole Wikipedia Page----");
+		System.out.println("Total links are: " + links.size());		
+		//Print all the links in Wikipedia page.
+		for(WebElement link : links) {
+			System.out.println(link.getText() + " -- URL IS -- " + link.getAttribute("href"));
 		}
 		
 		Thread.sleep(3000);
