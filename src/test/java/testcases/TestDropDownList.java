@@ -68,7 +68,11 @@ public class TestDropDownList {
 		//select.selectByValue("hi");
 		select.selectByIndex(0);
 		
-		List<WebElement> values = driver.findElements(By.tagName("option"));
+		/*Find all option tag in the whole web page. If there are many dropdown list in a page.
+		List<WebElement> values = driver.findElements(By.tagName("option"));*/
+		
+		//Find the option tag in a particular dropdown only.
+		List<WebElement> values = language.findElements(By.tagName("option"));
 		//In a list, the 1st value is always at the 0th index, and the last value is n-1 
 		System.out.println("Total values are: " + values.size());
 		
