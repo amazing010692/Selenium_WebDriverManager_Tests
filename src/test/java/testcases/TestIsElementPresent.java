@@ -67,6 +67,10 @@ public class TestIsElementPresent {
 		WebElement myLink = driver.findElement(By.id("searchLanguage"));
 		System.out.println(myLink.isDisplayed());
 		
+		//Check if element is present using the created logic for isElementPresent method
+		System.out.println(isElementPresent(("//*[@id='searchLanguage']"))); //right xpath
+		System.out.println(isElementPresent(("//*[@id='searchLanguageNotTRUE']"))); //wrong xpath
+		
 		Thread.sleep(3000);
 		driver.close();
 	}
