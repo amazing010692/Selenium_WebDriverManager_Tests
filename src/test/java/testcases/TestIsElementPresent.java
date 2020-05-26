@@ -21,11 +21,18 @@ public class TestIsElementPresent {
 	public static WebDriver driver;
 	
 	public static boolean isElementPresent(String locator) {
-		try {
+		/*try {
 			driver.findElement(By.xpath(locator));
 			return true;
 		} catch(Throwable t) {
 			return false;
+		}*/
+		
+		int size = driver.findElements(By.xpath(locator)).size();
+		if(size == 0) {
+			return false;			
+		} else {
+			return true;
 		}
 
 	}
@@ -64,12 +71,12 @@ public class TestIsElementPresent {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		//Check whether the element is displayed.
-		WebElement myLink = driver.findElement(By.id("searchLanguage"));
+		WebElement myLink = driver.findElement(By.id("searchLanguage")); //hidden element -> false
 		System.out.println(myLink.isDisplayed());
 		
 		//Check if element is present using the created logic for isElementPresent method
-		System.out.println(isElementPresent(("//*[@id='searchLanguage']"))); //right xpath
-		System.out.println(isElementPresent(("//*[@id='searchLanguageNotTRUE']"))); //wrong xpath
+		System.out.println(isElementPresent(("//*[@id='searchLanguage']"))); //right xpath -> true
+		System.out.println(isElementPresent(("//*[@id='searchLanguageNotTRUE']"))); //wrong xpath -> false
 		
 		Thread.sleep(3000);
 		driver.close();
