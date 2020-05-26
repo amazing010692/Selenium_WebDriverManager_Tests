@@ -20,7 +20,7 @@ public class TestIsElementPresent {
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
 	
-	public static boolean isElementPresent(String locator) {
+	public static boolean isElementPresent(By by) {
 		/*try {
 			driver.findElement(By.xpath(locator));
 			return true;
@@ -28,7 +28,7 @@ public class TestIsElementPresent {
 			return false;
 		}*/
 		
-		int size = driver.findElements(By.xpath(locator)).size();
+		int size = driver.findElements(by).size();
 		if(size == 0) {
 			return false;			
 		} else {
@@ -75,8 +75,9 @@ public class TestIsElementPresent {
 		System.out.println(myLink.isDisplayed());
 		
 		//Check if element is present using the created logic for isElementPresent method
-		System.out.println(isElementPresent(("//*[@id='searchLanguage']"))); //right xpath -> true
-		System.out.println(isElementPresent(("//*[@id='searchLanguageNotTRUE']"))); //wrong xpath -> false
+		System.out.println(isElementPresent(By.xpath("//*[@id='searchLanguage']"))); //right xpath -> true
+		System.out.println(isElementPresent(By.id("searchLanguage"))); //right id -> true
+		System.out.println(isElementPresent(By.xpath("//*[@id='searchLanguageNotTRUE']"))); //wrong xpath -> false
 		
 		Thread.sleep(3000);
 		driver.close();
