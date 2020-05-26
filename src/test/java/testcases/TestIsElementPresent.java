@@ -19,6 +19,16 @@ public class TestIsElementPresent {
 
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
+	
+	public static boolean isElementPresent(String locator) {
+		try {
+			driver.findElement(By.xpath(locator));
+			return true;
+		} catch(Throwable t) {
+			return false;
+		}
+
+	}
 
 	public static void main(String[] args) throws InterruptedException {
 		
@@ -54,7 +64,7 @@ public class TestIsElementPresent {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		//Check whether the element is displayed.
-		WebElement myLink = driver.findElement(By.xpath("//*[@id=\"js-link-box-en\"]/strong"));
+		WebElement myLink = driver.findElement(By.id("searchLanguage"));
 		System.out.println(myLink.isDisplayed());
 		
 		Thread.sleep(3000);
