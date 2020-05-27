@@ -19,6 +19,23 @@ public class TestCheckboxes {
 
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
+	
+	public static boolean isElementPresent(By by) {
+		/*try {
+			driver.findElement(By.xpath(locator));
+			return true;
+		} catch(Throwable t) {
+			return false;
+		}*/
+		
+		int size = driver.findElements(by).size();
+		if(size == 0) {
+			return false;			
+		} else {
+			return true;
+		}
+
+	}
 
 	public static void main(String[] args) throws InterruptedException {
 		
@@ -70,10 +87,15 @@ public class TestCheckboxes {
 		}*/
 		
 		int i = 1;
-		while(true) {
+		int count = 0;
+		
+		while(isElementPresent(By.xpath("//div[4]/input[" + i + "]"))) {
 			driver.findElement(By.xpath("//div[4]/input[" + i + "]")).click();
 			i++;
+			count++;
 		}
+		
+		System.out.println("Total checkboxes are: " + count);
 	}
 
 }
