@@ -1,5 +1,6 @@
 package testcases;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -86,7 +87,7 @@ public class TestCheckboxes {
 			driver.findElement(By.xpath("//div[4]/input[" + i + "]")).click();
 		}*/
 		
-		int i = 1;
+		/*int i = 1;
 		int count = 0;
 		
 		while(isElementPresent(By.xpath("//div[4]/input[" + i + "]"))) {
@@ -95,7 +96,14 @@ public class TestCheckboxes {
 			count++;
 		}
 		
-		System.out.println("Total checkboxes are: " + count);
+		System.out.println("Total checkboxes are: " + count);*/
+		
+		List<WebElement> checkboxes = driver.findElements(By.name("sports"));
+		System.out.println("Total checkboxes are: " + checkboxes.size());
+		
+		for(WebElement checkbox : checkboxes) {
+			checkbox.click();
+		}
 	}
 
 }
