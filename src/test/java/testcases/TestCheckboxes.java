@@ -65,10 +65,15 @@ public class TestCheckboxes {
 		WebElement basketballCheckbox = driver.findElement(By.xpath("//div[4]/input[4]"));
 		basketballCheckbox.click();*/
 		
-		for(int i = 1; i <= 4; i++) {
+		/*for(int i = 1; i <= 4; i++) {
 			driver.findElement(By.xpath("//div[4]/input[" + i + "]")).click();
+		}*/
+		
+		int i = 1;
+		while(true) {
+			driver.findElement(By.xpath("//div[4]/input[" + i + "]")).click();
+			i++;
 		}
-
 	}
 
 }
