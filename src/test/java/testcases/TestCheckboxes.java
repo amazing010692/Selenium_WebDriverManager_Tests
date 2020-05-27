@@ -53,7 +53,7 @@ public class TestCheckboxes {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		WebElement soccerCheckbox = driver.findElement(By.xpath("//div[4]/input[1]"));
+		/*WebElement soccerCheckbox = driver.findElement(By.xpath("//div[4]/input[1]"));
 		soccerCheckbox.click();
 		
 		WebElement footballCheckbox = driver.findElement(By.xpath("//div[4]/input[2]"));
@@ -63,7 +63,11 @@ public class TestCheckboxes {
 		baseballCheckbox.click();
 		
 		WebElement basketballCheckbox = driver.findElement(By.xpath("//div[4]/input[4]"));
-		basketballCheckbox.click();
+		basketballCheckbox.click();*/
+		
+		for(int i = 1; i <= 4; i++) {
+			driver.findElement(By.xpath("//div[4]/input[" + i + "]")).click();
+		}
 
 	}
 
