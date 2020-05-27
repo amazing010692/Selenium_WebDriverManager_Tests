@@ -58,6 +58,12 @@ public class TestCheckboxes {
 		
 		WebElement footballCheckbox = driver.findElement(By.xpath("//div[4]/input[2]"));
 		footballCheckbox.click();
+		
+		WebElement baseballCheckbox = driver.findElement(By.xpath("//div[4]/input[3]"));
+		baseballCheckbox.click();
+		
+		WebElement basketballCheckbox = driver.findElement(By.xpath("//div[4]/input[4]"));
+		basketballCheckbox.click();
 
 	}
 
