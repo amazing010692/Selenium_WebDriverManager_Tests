@@ -47,7 +47,7 @@ public class TestCheckboxes {
 		
 		}
 		
-		driver.get("http://gmail.com");
+		driver.get("http://www.tizag.com/htmlT/htmlcheckboxes.php");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
