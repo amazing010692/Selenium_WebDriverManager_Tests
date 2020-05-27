@@ -98,7 +98,8 @@ public class TestCheckboxes {
 		
 		System.out.println("Total checkboxes are: " + count);*/
 		
-		List<WebElement> checkboxes = driver.findElements(By.name("sports"));
+		WebElement block = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[1]/td[2]/table/tbody/tr/td/div[4]"));
+		List<WebElement> checkboxes = block.findElements(By.name("sports"));
 		System.out.println("Total checkboxes are: " + checkboxes.size());
 		
 		for(WebElement checkbox : checkboxes) {
