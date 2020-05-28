@@ -59,6 +59,13 @@ public class TestWebTable {
 		
 		List<WebElement> colNum = driver.findElements(By.xpath("//*[@class='dataTable']/tbody/tr[1]/td"));
 		System.out.println("Total columns are: " + colNum.size());
+		
+		for(int rows = 1; rows <= rowNum.size(); rows++) {
+			for(int cols = 1; cols <= colNum.size(); cols++) {
+				System.out.print(driver.findElement(By.xpath("//*[@class='dataTable']/tbody/tr["+ rows +"]/td["+ cols +"]")).getText() + "  ");
+			}
+			System.out.println();
+		}
 
 	}
 
