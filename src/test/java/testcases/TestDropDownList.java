@@ -89,7 +89,7 @@ public class TestDropDownList {
 		WebElement block = driver.findElement(By.xpath("//*[@id=\'www-wikipedia-org\']/div[6]"));
 		//Get the number of links within the block section only.
 		List<WebElement> links_section = block.findElements(By.tagName("a"));
-		System.out.println("----Printling Links in the Block Section----");
+		System.out.println("----Printing Links in the Block Section----");
 		System.out.println("Total links are: " + links_section.size());
 		//Print all the links within the block section only.
 		for(WebElement linkBlock : links_section) {
@@ -98,7 +98,7 @@ public class TestDropDownList {
 		
 		//Get the number of links in Wikipedia page.
 		List<WebElement> links = driver.findElements(By.tagName("a"));
-		System.out.println("----Printling Links in the whole Wikipedia Page----");
+		System.out.println("----Printing Links in the whole Wikipedia Page----");
 		System.out.println("Total links are: " + links.size());		
 		//Print all the links in Wikipedia page.
 		for(WebElement link : links) {
