@@ -61,6 +61,10 @@ public class PrintAllLinks_01 {
 		WebElement searchButton = driver.findElement(By.name("btnK"));
 		searchButton.click();
 		
+		//Click the 1st link in the Search Results
+		WebElement firstResult = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div[1]/a/h3"));
+		firstResult.click();
+		
 	}
 
 }
