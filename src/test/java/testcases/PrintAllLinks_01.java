@@ -2,7 +2,9 @@ package testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -50,8 +52,14 @@ public class PrintAllLinks_01 {
 		driver.get("https://www.google.com/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			
 		
+		//Type in the search box.
+		WebElement searchBox = driver.findElement(By.xpath("//*[@name='q']"));
+		searchBox.sendKeys("way2automation");
+		
+		//Click the search button.
+		WebElement searchButton = driver.findElement(By.name("btnK"));
+		searchButton.click();
 		
 	}
 
