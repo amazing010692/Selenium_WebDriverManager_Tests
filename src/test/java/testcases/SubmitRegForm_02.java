@@ -55,7 +55,8 @@ public class SubmitRegForm_02 {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		//Input name in the Name field.
-		
+		WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
+		nameField.sendKeys("Janielle Joy Gregorio");
 
 	}
 
