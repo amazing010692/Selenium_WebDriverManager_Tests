@@ -1,6 +1,5 @@
 package testcases;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -13,6 +12,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.Select;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -57,6 +57,13 @@ public class SubmitRegForm_02 {
 		//Input name in the Name field.
 		WebElement nameField = driver.findElement(By.xpath("//input[@name='name']"));
 		nameField.sendKeys("Janielle Joy Gregorio");
+		
+		//Select country from the dropdown list.
+		WebElement country = driver.findElement(By.xpath("//select[@name='country']"));
+		Select select = new Select(country);
+		select.selectByVisibleText("Philippines");
+		
+		//Input city in the City field.
 
 	}
 
