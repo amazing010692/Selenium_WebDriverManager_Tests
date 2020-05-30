@@ -64,6 +64,8 @@ public class SubmitRegForm_02 {
 		select.selectByVisibleText("Philippines");
 		
 		//Input city in the City field.
+		WebElement cityField = driver.findElement(By.xpath("//input[@name='city']"));
+		cityField.sendKeys("Parañaque");
 
 	}
 
