@@ -50,7 +50,7 @@ public class SubmitRegForm_02 {
 		
 		}
 		
-		driver.get("http://way2automation.com/way2auto_jquery/index.php");
+		driver.get("http://qa.way2automation.com");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
@@ -66,6 +66,10 @@ public class SubmitRegForm_02 {
 		//Input city in the City field.
 		WebElement cityField = driver.findElement(By.xpath("//input[@name='city']"));
 		cityField.sendKeys("Parañaque");
+		
+		//Click the Submit button.
+		WebElement submitButton = driver.findElement(By.xpath("(//input[@type='submit'][@class='button'])[2]"));
+		submitButton.click();
 
 	}
 
