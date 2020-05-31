@@ -65,6 +65,7 @@ public class TextCaptcha_03 {
 		//Store the operator in a string variable.
 		String operator = splitVars[1];
 		
+		//Switch statement for handling the different operators.
 		int answer = 0;		
 		switch(operator) {	
 		
@@ -86,6 +87,9 @@ public class TextCaptcha_03 {
 		//Write the answer of the mathematical equation in the box.
 		WebElement mathAnswer = driver.findElement(By.xpath("//input[@id='mathuserans2']"));
 		mathAnswer.sendKeys(String.valueOf(answer));
+		
+		//Print out in the console.
+		System.out.println(equation + " " + answer);
 		
 		//Refresh the page.
 		driver.navigate().refresh();
