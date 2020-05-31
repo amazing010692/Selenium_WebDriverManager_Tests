@@ -52,12 +52,22 @@ public class TextCaptcha_03 {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		//Get the equation.
-		WebElement equation = driver.findElement(By.xpath("//span[@id='mathq2']"));
-		System.out.println(equation.getText());
+		//Get the equation and store in a String variable, "equation"
+		String equation = driver.findElement(By.xpath("//span[@id='mathq2']")).getText();
 		
-		//Split the equation and store in a String array.
+		//Split the equation and store in a String array, "splitVars"
+		String[] splitVars = equation.split(" ");
 		
+		//Store the 1st and 2nd numbers in an integer variable.
+		int firstNum = Integer.valueOf(splitVars[0]);
+		int secondNum = Integer.valueOf(splitVars[2]);
+		
+		//Store the operator in a string variable.
+		String operator = splitVars[1];
+		
+		System.out.println(firstNum);
+		System.out.println(secondNum);
+		System.out.println(operator);
 		
 		//Click the Answer box.
 		WebElement mathAnswer = driver.findElement(By.xpath("//input[@id='mathuserans2']"));
