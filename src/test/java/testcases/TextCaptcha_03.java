@@ -52,6 +52,9 @@ public class TextCaptcha_03 {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
+		//For loop to run the whole scenario 10 times.
+		for(int rep = 1; rep <= 10; rep++ ) {
+			
 		//Get the equation and store in a String variable, "equation"
 		String equation = driver.findElement(By.xpath("//span[@id='mathq2']")).getText();
 		
@@ -89,11 +92,14 @@ public class TextCaptcha_03 {
 		mathAnswer.sendKeys(String.valueOf(answer));
 		
 		//Print out in the console.
-		System.out.println(equation + " " + answer);
+		System.out.println("Run #" + rep + ": " + equation + " " + answer);
 		
 		//Refresh the page.
 		driver.navigate().refresh();
-
+		}
+		
+		//After answering the captcha for 10 times, this will close the current browser.
+		driver.close();
 	}
 
 }
