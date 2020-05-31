@@ -12,8 +12,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.Select;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TextCaptcha_03 {
@@ -54,7 +52,12 @@ public class TextCaptcha_03 {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		//
+		//Click the Answer box.
+		WebElement mathAnswer = driver.findElement(By.xpath("//input[@id='mathuserans2']"));
+		mathAnswer.click();
+		
+		//Refresh the page.
+		driver.navigate().refresh();
 
 	}
 
