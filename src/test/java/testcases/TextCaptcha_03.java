@@ -67,6 +67,7 @@ public class TextCaptcha_03 {
 		
 		int answer = 0;		
 		switch(operator) {	
+		
 		case "+":
 			answer = firstNum + secondNum;
 			break;
@@ -82,9 +83,9 @@ public class TextCaptcha_03 {
 		
 		}
 		
-		//Click the Answer box.
+		//Write the answer of the mathematical equation in the box.
 		WebElement mathAnswer = driver.findElement(By.xpath("//input[@id='mathuserans2']"));
-		mathAnswer.click();
+		mathAnswer.sendKeys(String.valueOf(answer));
 		
 		//Refresh the page.
 		driver.navigate().refresh();
