@@ -65,9 +65,22 @@ public class TextCaptcha_03 {
 		//Store the operator in a string variable.
 		String operator = splitVars[1];
 		
-		System.out.println(firstNum);
-		System.out.println(secondNum);
-		System.out.println(operator);
+		int answer = 0;		
+		switch(operator) {	
+		case "+":
+			answer = firstNum + secondNum;
+			break;
+		case "-":
+			answer = firstNum - secondNum;
+			break;
+		case "*":
+			answer = firstNum * secondNum;
+			break;
+		case "/":
+			answer = firstNum / secondNum;
+			break;
+		
+		}
 		
 		//Click the Answer box.
 		WebElement mathAnswer = driver.findElement(By.xpath("//input[@id='mathuserans2']"));
