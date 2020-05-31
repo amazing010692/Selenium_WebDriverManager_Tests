@@ -52,6 +52,13 @@ public class TextCaptcha_03 {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
+		//Get the equation.
+		WebElement equation = driver.findElement(By.xpath("//span[@id='mathq2']"));
+		System.out.println(equation.getText());
+		
+		//Split the equation and store in a String array.
+		
+		
 		//Click the Answer box.
 		WebElement mathAnswer = driver.findElement(By.xpath("//input[@id='mathuserans2']"));
 		mathAnswer.click();
