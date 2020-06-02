@@ -52,7 +52,7 @@ public class YoutubeViews {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		//For loop to run the whole scenario 10 times.
-		for(int rep = 1; rep <= 10; rep++ ) {
+		for(int rep = 1; rep <= 5; rep++ ) {
 				
 	
 		//Wait for 10 seconds
