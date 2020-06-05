@@ -90,6 +90,7 @@ public class Checkboxes_RadioButtons_Links {
 		for(int i = 0; i < count1; i++) {
 			
 			String text = driver.findElements(By.xpath("//input[@name='group1']")).get(i).getAttribute("value");
+			System.out.println(text);
 			if(text.equals("Cheese")) {
 				driver.findElements(By.xpath("//input[@name='group1']")).get(i).click();
 				System.out.println("Cheese successfully selected!!!");
