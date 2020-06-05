@@ -1,5 +1,6 @@
 package testcases;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -66,12 +67,21 @@ public class Checkboxes_RadioButtons_Links {
 		
 		//Store in "count1" variable the number of elements in the 1st group of radio buttons
 		int count1 = driver.findElements(By.xpath("//input[@name='group1']")).size();
+		
+		//Print the number of elements from the first group of radio buttons.
 		System.out.println("The number of elements in the 1st group of radio buttons: " + count1);
 		
 		//This will click each radio button one by one from the 1st group of radio buttons.
-		for(int i = 0; i < count1; i++) {
+		for(int i = 0; i < count1; i++) {		
 			driver.findElements(By.xpath("//input[@name='group1']")).get(i).click();
+			
+			//Print the values from the 1st group of radio buttons.
+			List<WebElement> values1 = driver.findElements(By.xpath("//input[@name='group1']"));
+			System.out.println("Value #" + (i + 1) + " from the 1st group of radio buttons is: " + values1.get(i).getAttribute("value"));
+				
 		}
+		
+
 
 	}
 
