@@ -63,6 +63,15 @@ public class Checkboxes_RadioButtons_Links {
 		//Navigate to this site for radio buttons.
 		driver.get("http://echoecho.com/htmlforms10.htm");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		//Store in "count1" variable the number of elements in the 1st group of radio buttons
+		int count1 = driver.findElements(By.xpath("//input[@name='group1']")).size();
+		System.out.println("The number of elements in the 1st group of radio buttons: " + count1);
+		
+		//This will click each radio button one by one from the 1st group of radio buttons.
+		for(int i = 0; i < count1; i++) {
+			driver.findElements(By.xpath("//input[@name='group1']")).get(i).click();
+		}
 
 	}
 
