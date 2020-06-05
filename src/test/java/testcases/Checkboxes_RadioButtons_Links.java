@@ -2,7 +2,9 @@ package testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -51,7 +53,12 @@ public class Checkboxes_RadioButtons_Links {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-			
+		//Select the "Armed Forces" checkbox.
+		WebElement ArmedForces = driver.findElement(By.xpath("//label[@for='Armed']/parent::div[@xpath='1']"));
+		ArmedForces.click();
+		
+		//Navigate to another website.
+		driver.navigate().to("http://echoecho.com/htmlforms10.htm");
 
 	}
 
