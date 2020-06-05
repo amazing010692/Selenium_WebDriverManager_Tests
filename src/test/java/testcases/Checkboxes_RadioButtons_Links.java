@@ -101,7 +101,12 @@ public class Checkboxes_RadioButtons_Links {
 		//Navigate to this site for links.
 		driver.get("https://www.hollisterco.com/shop/wd");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
-
+		
+		//Store in an integer variable the total number of links.
+		int linkCounts = driver.findElements(By.tagName("a")).size();
+		
+		//Print in the console the total number of links.
+		System.out.println("The total number of links in this website is: " + linkCounts);
 	}
 
 }
