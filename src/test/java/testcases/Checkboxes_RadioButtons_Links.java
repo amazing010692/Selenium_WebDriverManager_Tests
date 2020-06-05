@@ -48,17 +48,21 @@ public class Checkboxes_RadioButtons_Links {
 		
 		}
 		
-		//Navigate to this site for sample checkbox.
-		driver.get("https://www.goair.in/");
+		//Pre-conditions
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
+		//Navigate to this site for sample checkbox.
+		driver.get("https://www.goair.in/");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+
 		//Select the "Armed Forces" checkbox.
-		WebElement ArmedForces = driver.findElement(By.xpath("//label[@for='Armed']/parent::div[@xpath='1']"));
+		WebElement ArmedForces = driver.findElement(By.xpath("//label[@for='Armed']"));
 		ArmedForces.click();
 		
-		//Navigate to another website.
-		driver.navigate().to("http://echoecho.com/htmlforms10.htm");
+		//Navigate to this site for radio buttons.
+		driver.get("http://echoecho.com/htmlforms10.htm");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 
 	}
 
