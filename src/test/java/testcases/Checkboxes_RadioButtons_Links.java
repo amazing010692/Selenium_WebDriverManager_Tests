@@ -112,7 +112,14 @@ public class Checkboxes_RadioButtons_Links {
 		WebElement footer = driver.findElement(By.cssSelector(".footer__info-links.grid-col.grid-col-2"));
 		
 		//Print in the console the number of links in the footer section
-		System.out.println("The number of links in the footer section is: " + footer.findElements(By.tagName("a")).size());
+		List<WebElement> footerLinks = footer.findElements(By.tagName("a"));
+		System.out.println("The number of links in the footer section is: " + footerLinks.size());
+		System.out.println("------Print All Links in the Footer Section Only------");
+		
+		//Print all the links within the footer section only.
+		for(WebElement footerBlock : footerLinks) {
+			System.out.println(footerBlock.getText() + " | " + footerBlock.getAttribute("href"));
+		}
 	}
 
 }
