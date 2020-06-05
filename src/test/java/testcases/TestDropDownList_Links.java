@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestDropDownList {
+public class TestDropDownList_Links {
 
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;

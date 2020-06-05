@@ -107,6 +107,12 @@ public class Checkboxes_RadioButtons_Links {
 		
 		//Print in the console the total number of links.
 		System.out.println("The total number of links in this website is: " + linkCounts);
+		
+		//Store in a "footer" variable the footer section of the page.
+		WebElement footer = driver.findElement(By.cssSelector(".footer__info-links.grid-col.grid-col-2"));
+		
+		//Print in the console the number of links in the footer section
+		System.out.println("The number of links in the footer section is: " + footer.findElements(By.tagName("a")).size());
 	}
 
 }
