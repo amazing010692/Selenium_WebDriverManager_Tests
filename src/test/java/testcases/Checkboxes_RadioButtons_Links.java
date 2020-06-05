@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -107,6 +109,10 @@ public class Checkboxes_RadioButtons_Links {
 		
 		//Print in the console the total number of links.
 		System.out.println("The total number of links in this website is: " + linkCounts);
+		
+		//Actions class to scroll down in a page.
+		Actions actions = new Actions(driver);
+		actions.sendKeys(Keys.CONTROL.END).perform();
 		
 		//Store in a "footer" variable the footer section of the page.
 		WebElement footer = driver.findElement(By.cssSelector(".footer__info-links.grid-col.grid-col-2"));
