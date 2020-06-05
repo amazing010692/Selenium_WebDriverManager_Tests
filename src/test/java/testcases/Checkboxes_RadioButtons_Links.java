@@ -49,7 +49,7 @@ public class Checkboxes_RadioButtons_Links {
 		
 		}
 		
-		//Pre-conditions
+		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
@@ -72,15 +72,32 @@ public class Checkboxes_RadioButtons_Links {
 		System.out.println("The number of elements in the 1st group of radio buttons: " + count1);
 		
 		//This will click each radio button one by one from the 1st group of radio buttons.
-		for(int i = 0; i < count1; i++) {		
+		for(int i = 0; i < count1; i++) {
+					
+			//This will start to select each radio button one by 1.
 			driver.findElements(By.xpath("//input[@name='group1']")).get(i).click();
 			
 			//Print the values from the 1st group of radio buttons.
 			List<WebElement> values1 = driver.findElements(By.xpath("//input[@name='group1']"));
-			System.out.println("Value #" + (i + 1) + " from the 1st group of radio buttons is: " + values1.get(i).getAttribute("value"));
-				
+			System.out.println("Value #" + (i + 1) + " from the 1st group of radio buttons is: " + values1.get(i).getAttribute("value"));	
+
 		}
 		
+		//Refresh the page.
+		driver.navigate().refresh();
+		
+		//This will click the "Cheese" option first since "Butter" is selected by default.
+		for(int i = 0; i < count1; i++) {
+			
+			String text = driver.findElements(By.xpath("//input[@name='group1']")).get(i).getAttribute("value");
+			if(text.equals("Cheese")) {
+				driver.findElements(By.xpath("//input[@name='group1']")).get(i).click();
+				System.out.println("Cheese successfully selected!!!");
+			}
+			
+		}
+		
+		//
 
 
 	}
