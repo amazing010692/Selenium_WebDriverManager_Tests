@@ -98,8 +98,9 @@ public class Checkboxes_RadioButtons_Links {
 			
 		}
 		
-		//
-
+		//Navigate to this site for links.
+		driver.get("https://www.hollisterco.com/shop/wd");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 
 	}
 
