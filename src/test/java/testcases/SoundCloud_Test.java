@@ -12,9 +12,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SoundCloud_Test {
@@ -22,13 +19,21 @@ public class SoundCloud_Test {
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
 
+	public static boolean isElementPresent(By by) {
+
+		int size = driver.findElements(by).size();
+		if(size == 0) {
+			return false;			
+		} else {
+			return true;
+		}
+
+	}
+
 	public static void main(String[] args) throws InterruptedException {
 		
-		/*int rep = 1;
-		while(rep <2) {	*/
-		
-		//Repeat the entire scenario for 5 times.
-		for(int rep = 1; rep <= 5; rep++ ) {
+		//Repeat the entire scenario for rep <= n times.
+		for(int rep = 1; rep <= 1000; rep++ ) {
 		
 		if(browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -56,22 +61,22 @@ public class SoundCloud_Test {
 			driver = new OperaDriver(options);
 		
 		}
-		
 	
 		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			
-		//Go to SoundCloud URL.	
-		driver.get("https://soundcloud.com/janielle-joy-gregorio/i-miss-you-goblin-ost-duet-cover-by-janielle-joy-gregorio");
+		//Input here the SoundCloud URL you want to automatically play.
+		driver.get("https://soundcloud.com/taylorswiftofficial/the-man-live-from-paris");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 			
 		//Click the Play button
-		WebDriverWait wait = new WebDriverWait(driver, 20);
-		WebElement playButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[@role='button'][@title='Play'])[1]")));
-		playButton.isDisplayed();
-		playButton.click();
+		WebElement playButton = driver.findElement(By.xpath("(//a[@role='button'][@title='Play'])[1]"));
 		
+		if(playButton.isDisplayed()) {
+			playButton.click();
+		}
+			
 		//Print out in the console.
 		System.out.println("Run #" + rep + ": COMPLETED!");
 		Thread.sleep(3000);
