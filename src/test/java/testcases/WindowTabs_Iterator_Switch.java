@@ -56,7 +56,7 @@ public class WindowTabs_Iterator_Switch {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		//Navigate to this site for links.
-		driver.get("https://www.hollisterco.com/shop/wd");
+		driver.get("https://www.facebook.com");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
 		//Store in an integer variable the total number of links.
