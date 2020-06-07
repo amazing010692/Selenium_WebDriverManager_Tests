@@ -84,6 +84,13 @@ public class WindowTabs_Iterator_Switch {
 			Thread.sleep(1000);
 		}
 		
+		//The title of each window including the parent window gets printed.
+		java.util.Iterator<String> iter = driver.getWindowHandles().iterator();	
+		while(iter.hasNext()) {
+			driver.switchTo().window(iter.next());
+			System.out.println(driver.getTitle());
+		}
+		
 	}
 
 }
