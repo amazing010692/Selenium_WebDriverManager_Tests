@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -75,6 +76,14 @@ public class WindowTabs_Iterator_Switch {
 		for(WebElement footerBlock : footerLinks) {
 			System.out.println(footerBlock.getText() + " | " + footerBlock.getAttribute("href"));
 		}
+		
+		//Click the links one by one and open them in a new tab.
+		for(int i = 0; i < footerLinks.size(); i++) {
+			String clickonlinkTab = Keys.chord(Keys.CONTROL,Keys.ENTER);
+			footerLinks.get(i).sendKeys(clickonlinkTab);
+			Thread.sleep(1000);
+		}
+		
 	}
 
 }
