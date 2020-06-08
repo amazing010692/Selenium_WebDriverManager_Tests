@@ -62,11 +62,18 @@ public class StaticDynamicDropdowns {
 		WebElement dropdownMenu = driver.findElement(By.xpath("//select[@name='dropdownmenu']"));
 		Select select = new Select(dropdownMenu);
 		
+		//Select by value will select the value indicated.
+		Thread.sleep(1000);
+		select.selectByValue("Cheese");
+		System.out.println("Cheese is selected.");
+		
 		//Select by visible text will literally select the exact text fron the dropdown list.
+		Thread.sleep(1000);
 		select.selectByVisibleText("Milk");
 		System.out.println("Milk is selected.");
 		
 		//If index is 0, the first option from the dropdown list will be selected which is "Butter".
+		Thread.sleep(1000);
 		select.selectByIndex(0);
 		System.out.println("Butter is selected.");
 	}
