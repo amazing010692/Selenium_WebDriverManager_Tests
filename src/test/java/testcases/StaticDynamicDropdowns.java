@@ -62,8 +62,13 @@ public class StaticDynamicDropdowns {
 		WebElement dropdownMenu = driver.findElement(By.xpath("//select[@name='dropdownmenu']"));
 		Select select = new Select(dropdownMenu);
 		
+		//Select by visible text will literally select the exact text fron the dropdown list.
+		select.selectByVisibleText("Milk");
+		System.out.println("Milk is selected.");
+		
 		//If index is 0, the first option from the dropdown list will be selected which is "Butter".
-		select.selectByIndex(1);
+		select.selectByIndex(0);
+		System.out.println("Butter is selected.");
 	}
 
 }
