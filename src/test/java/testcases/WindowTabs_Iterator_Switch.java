@@ -54,6 +54,7 @@ public class WindowTabs_Iterator_Switch {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
+		/*
 		//Navigate to this site for links.
 		driver.get("https://www.facebook.com");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
@@ -90,13 +91,7 @@ public class WindowTabs_Iterator_Switch {
 			driver.switchTo().window(iter.next());
 			System.out.println(driver.getTitle());
 		}
-		
-		//Close the browser window.
-		driver.close();
-		
-		//Pre-conditions | Maximize the browser and apply implicit waits.
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		*/
 		
 		//Navigate to this site wherein if you click the child window, it will automatically open in a new tab.
 		driver.get("https://www.hdfc.com/");
@@ -116,6 +111,28 @@ public class WindowTabs_Iterator_Switch {
 		driver.switchTo().window(parentID);			//switches back to parent window
 		System.out.println(driver.getTitle());		//prints title of parent window
 		
+		driver.switchTo().window(childID);			//switches to child window
+		driver.close();								//close the child window
+		driver.switchTo().window(parentID);			//switches back to parent window
+		
+		//Navigate to this site wherein if you click the child window, you need to press CTRL + ENTER
+		driver.get("https://www.cheqsystems.com/");
+		WebElement careersLink = driver.findElement(By.xpath("(//a[@href='https://www.cheqsystems.com/careers/'])[1]"));
+		String ctrlEnter = Keys.chord(Keys.CONTROL,Keys.ENTER);
+		careersLink.sendKeys(ctrlEnter);
+		
+		//The console first prints the title of child window and then the title of the parent window.
+		java.util.Iterator<String> iterate1 = driver.getWindowHandles().iterator();
+		String parentID1 = iterate1.next();			//first iterate.next() points to current parent window
+		String childID1 = iterate1.next();			//second iterate.next() points to current child window
+		
+		driver.switchTo().window(childID1);			//switches to child window
+		System.out.println(driver.getTitle());		//prints title of child window
+		
+		driver.switchTo().window(parentID1);		//switches back to parent window
+		System.out.println(driver.getTitle());		//prints title of parent window
+		
+		driver.quit();								//End the WebDriver session
 	}
 
 }
