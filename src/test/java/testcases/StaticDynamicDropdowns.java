@@ -54,7 +54,7 @@ public class StaticDynamicDropdowns {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		//Navigate to this site for sample static dropdown.
+		//Navigate to this site for sample static dropdown with "select" tag.
 		driver.get("http://echoecho.com/htmlforms11.htm");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 
@@ -76,6 +76,10 @@ public class StaticDynamicDropdowns {
 		Thread.sleep(1000);
 		select.selectByIndex(0);
 		System.out.println("Butter is selected.");
+		
+		//Navigate to this site for sample dynamic dropdown with no "select" tag.
+		driver.get("https://www.spicejet.com/");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 	}
 
 }
