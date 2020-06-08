@@ -54,7 +54,7 @@ public class WindowTabs_Iterator_Switch {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		/*
+		
 		//Navigate to this site for links.
 		driver.get("https://www.facebook.com");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
@@ -91,7 +91,17 @@ public class WindowTabs_Iterator_Switch {
 			driver.switchTo().window(iter.next());
 			System.out.println(driver.getTitle());
 		}
-		*/
+		
+		//Close all the child windows except the parent window
+	    String parentWindow = driver.getWindowHandle();
+	    //Condition to handle the switching and closing of opened tabs
+	    for(String openTabs : driver.getWindowHandles()) {
+	        if (!openTabs.equals(parentWindow)) {
+	            driver.switchTo().window(openTabs);
+	            driver.close();
+	        }
+	    }
+	    driver.switchTo().window(parentWindow);
 		
 		//Navigate to this site wherein if you click the child window, it will automatically open in a new tab.
 		driver.get("https://www.hdfc.com/");
