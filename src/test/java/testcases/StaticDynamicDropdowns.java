@@ -20,6 +20,17 @@ public class StaticDynamicDropdowns {
 	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
+	
+	public static boolean isElementPresent(By by) {
+
+		int size = driver.findElements(by).size();
+		if(size == 0) {
+			return false;			
+		} else {
+			return true;
+		}
+
+	}
 
 	public static void main(String[] args) throws InterruptedException {
 		
@@ -78,8 +89,22 @@ public class StaticDynamicDropdowns {
 		System.out.println("Butter is selected.");
 		
 		//Navigate to this site for sample dynamic dropdown with no "select" tag.
-		driver.get("https://www.spicejet.com/");
+		driver.get("https://www.cebupacificair.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		//Click the Arrival dropdown list.
+		WebElement arrivalDropdown = driver.findElement(By.xpath("//div[@class='form-group to-station']//span[@class='caret']"));
+		if(arrivalDropdown.isDisplayed()) {
+			arrivalDropdown.click();
+		}
+		
+		//Click the desired country from the Arrival dropdown list.
+		WebElement selectPH = driver.findElement(By.xpath("//*[@id=\"flyout-ToHotelStation\"]/div/div/div[1]/ul[2]/li[4]/a/h5"));
+		if(selectPH.isDisplayed()) {
+			selectPH.click();
+		}
+		
+		//
 	}
 
 }
