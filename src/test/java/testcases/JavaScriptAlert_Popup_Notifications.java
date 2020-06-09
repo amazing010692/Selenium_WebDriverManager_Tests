@@ -98,6 +98,9 @@ public class JavaScriptAlert_Popup_Notifications {
 		//Navigate to this site for sample notifications.
 		driver.get("https://www.cleartrip.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		//Quits the WebDriver session.
+		driver.quit();
 	}
 
 }
