@@ -1,7 +1,7 @@
 package testcases;
-
+ 
 import java.util.concurrent.TimeUnit;
-
+ 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,14 +13,14 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
-
+ 
 import io.github.bonigarcia.wdm.WebDriverManager;
-
+ 
 public class StaticDynamicDropdowns {
 	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
-
+ 
 	public static void main(String[] args) throws InterruptedException {
 		
 		if(browser.equals("chrome")) {
@@ -53,11 +53,11 @@ public class StaticDynamicDropdowns {
 		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
+		/*
 		//Navigate to this site for sample static dropdown with "select" tag.
 		driver.get("http://echoecho.com/htmlforms11.htm");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
-
+ 
 		//Different ways to select an option from drowdown list.
 		WebElement dropdownMenu = driver.findElement(By.xpath("//select[@name='dropdownmenu']"));
 		Select select = new Select(dropdownMenu);
@@ -76,18 +76,25 @@ public class StaticDynamicDropdowns {
 		Thread.sleep(1000);
 		select.selectByIndex(0);
 		System.out.println("Butter is selected.");
-		
+		*/
 		//Navigate to this site for sample dynamic dropdown with no "select" tag.
-		driver.get("https://www.jotformpro.com/form/43514646570961?");
+		driver.get("https://www.spicejet.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Click the 1st Dropdown List.
-		WebElement Capacity = driver.findElement(By.xpath("//span[@role='presentation'])[1]"));
-		Capacity.click();
 		
-		//Select Small capacity from the Dropdown List.
-		WebElement smallCapacity = driver.findElement(By.xpath("//span[@aria-activedescendant='select2-5x31-result-at2h-Small Capacity or Families']"));
-		smallCapacity.click();
-	}
+		//Click the Departure City Dropdown List.
+		WebElement departureCity = driver.findElement(By.xpath("//select[@id='ctl00_mainContent_ddl_originStation1']"));
+		departureCity.click();
+		
+		//Select the desired city.
+		WebElement selectBLR = driver.findElement(By.xpath("//a[contains(text(),'Bengaluru (BLR)')]"));
+		selectBLR.click();
+		
+		//Click the Arrival City Dropdown List.
+		WebElement arrivalCity = driver.findElement(By.xpath("ctl00_mainContent_ddl_destinationStation1"));
+		arrivalCity.click();
+		
 
+	}
+ 
 }
