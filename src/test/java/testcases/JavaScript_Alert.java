@@ -2,7 +2,9 @@ package testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,7 +18,18 @@ public class JavaScript_Alert {
 	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
+	
+	public static boolean isElementPresent(By by) {
 
+		int size = driver.findElements(by).size();
+		if(size == 0) {
+			return false;			
+		} else {
+			return true;
+		}
+
+	}
+	
 	public static void main(String[] args) throws InterruptedException {
 		
 		if(browser.equals("chrome")) {
@@ -50,11 +63,22 @@ public class JavaScript_Alert {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			
-		//Navigate to this site for links.
+		//Navigate to this site for sample javascript alert.
 		driver.get("http://www.tizag.com/javascriptT/javascriptalert.php");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
+		//Click the Confirmation Alert button.
+		WebElement buttonConfirmation = driver.findElement(By.xpath("//input[@value='Confirmation Alert']"));
+		if(buttonConfirmation.isDisplayed()) {
+			buttonConfirmation.click();
+		}
 		
+		//Print the text seen in the alert message.
+		System.out.println(driver.switchTo().alert().getText());
+		
+		//Click the OK button in the pop-up
+		driver.switchTo().alert().accept();
+		System.out.println("OK button has been clicked.");
 	}
 
 }
