@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -33,9 +34,13 @@ public class JavaScriptAlert_Popup_Notifications {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
+		//Disable notifications in Chrome
+		ChromeOptions ops = new ChromeOptions();
+		ops.addArguments("--disable-notifications");
+		
 		if(browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(ops);
 			
 		} else if(browser.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
@@ -89,6 +94,10 @@ public class JavaScriptAlert_Popup_Notifications {
 		WebElement closeButton = driver.findElement(By.xpath("//*[@id=\"HomepageModalVideo\"]/div/div/div[1]/button"));
 		closeButton.click();
 		System.out.println("Close button has been clicked.");
+		
+		//Navigate to this site for sample notifications.
+		driver.get("https://www.cleartrip.com/");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 	}
 
 }
