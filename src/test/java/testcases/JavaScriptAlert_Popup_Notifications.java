@@ -12,6 +12,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class JavaScriptAlert_Popup_Notifications {
@@ -79,6 +80,15 @@ public class JavaScriptAlert_Popup_Notifications {
 		//Click the OK button in the pop-up
 		driver.switchTo().alert().accept();
 		System.out.println("OK button has been clicked.");
+		
+		//Navigate to this site for sample popup message.
+		driver.get("https://www.hdfc.com/");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		//Click the Close button from the popup message.
+		WebElement closeButton = driver.findElement(By.xpath("//*[@id=\"HomepageModalVideo\"]/div/div/div[1]/button"));
+		closeButton.click();
+		System.out.println("Close button has been clicked.");
 	}
 
 }
