@@ -86,7 +86,7 @@ public class StaticDynamicDropdowns {
 		WebElement departureCity = driver.findElement(By.xpath("//select[@id='ctl00_mainContent_ddl_originStation1']"));
 		departureCity.click();
 		
-		//Select the desired city.
+		//Select the preferred city.
 		WebElement selectBLR = driver.findElement(By.xpath("//a[contains(text(),'Bengaluru (BLR)')]"));
 		selectBLR.click();
 		
