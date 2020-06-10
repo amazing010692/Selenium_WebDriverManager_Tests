@@ -12,8 +12,9 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.Select;
- 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
  
 public class StaticDynamicDropdowns {
@@ -53,6 +54,7 @@ public class StaticDynamicDropdowns {
 		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		/*
 		//Navigate to this site for sample static dropdown with "select" tag.
 		driver.get("http://echoecho.com/htmlforms11.htm");
@@ -76,7 +78,7 @@ public class StaticDynamicDropdowns {
 		Thread.sleep(1000);
 		select.selectByIndex(0);
 		System.out.println("Butter is selected.");
-		*/
+		
 		//Navigate to this site for sample dynamic dropdown with no "select" tag.
 		driver.get("https://www.spicejet.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
@@ -92,8 +94,25 @@ public class StaticDynamicDropdowns {
 		
 		//Click the Arrival City Dropdown List.
 		WebElement arrivalCity = driver.findElement(By.xpath("ctl00_mainContent_ddl_destinationStation1"));
-		arrivalCity.click();
+		arrivalCity.click();*/
 		
+		//Navigate to this site for sample dynamic dropdown with no "select" tag.
+		driver.get("https://www.jotformpro.com/form/43514646570961?");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		//Input full name in the Full Name field.
+		WebElement fullName = driver.findElement(By.xpath("//input[@id='input_8']"));
+		fullName.sendKeys("Michiko Daimon");
+		
+		//Input email address in the E-mail field.
+		WebElement emailAddress = driver.findElement(By.xpath("//input[@id='input_5']"));
+		emailAddress.sendKeys("yonekura.ryoko@tv-asahi-music.co.jp");
+		
+		//Click the Capacity Dropdown List.
+		String xpathArrowDown1 = "//*[@id=\"select2-hq1b-container\"]";
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathArrowDown1)));
+		WebElement ArrowDown1 = driver.findElement(By.xpath(xpathArrowDown1));
+		ArrowDown1.click();
 
 	}
  
