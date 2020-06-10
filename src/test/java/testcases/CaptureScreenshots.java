@@ -1,9 +1,14 @@
 package testcases;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,7 +26,7 @@ public class CaptureScreenshots {
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		
 		if(browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -68,7 +73,12 @@ public class CaptureScreenshots {
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
 		//Take a screenshot.
+		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(src, new File("C:\\Users\\hello\\Pictures\\screenshots\\screenshot.png"));
+		System.out.println("Screenshot is generated in the destination path.");
 		
+		//Quits WebDriver session.
+		driver.quit();
 	}
 
 }
