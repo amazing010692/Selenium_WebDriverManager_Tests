@@ -108,6 +108,9 @@ public class StaticDynamicDropdowns {
 		WebElement emailAddress = driver.findElement(By.xpath("//input[@id='input_5']"));
 		emailAddress.sendKeys("yonekura.ryoko@tv-asahi-music.co.jp");
 		
+		//Switch to Dynamic Dropdowns iframe.
+		driver.switchTo().frame(0);
+		
 		//Click the Capacity Dropdown List.
 		String xpathArrowDown1 = "//*[@id=\"select2-hq1b-container\"]";
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathArrowDown1)));
