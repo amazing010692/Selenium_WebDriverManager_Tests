@@ -63,6 +63,12 @@ public class CaptureScreenshots {
 		Actions action = new Actions(driver);
 		action.moveToElement(searchField).click().keyDown(Keys.SHIFT).sendKeys("hello").build().perform();
 		
+		//Navigate to this site for sample screenshot.
+		driver.get("https://www.goibibo.com/");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		//Take a screenshot.
+		
 	}
 
 }
