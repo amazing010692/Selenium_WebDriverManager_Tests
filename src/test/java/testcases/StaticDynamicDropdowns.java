@@ -3,6 +3,7 @@ package testcases;
 import java.util.concurrent.TimeUnit;
  
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -115,7 +116,8 @@ public class StaticDynamicDropdowns {
 		String xpathArrowDown1 = "//*[@id=\"select2-hq1b-container\"]";
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathArrowDown1)));
 		WebElement ArrowDown1 = driver.findElement(By.xpath(xpathArrowDown1));
-		ArrowDown1.click();
+		JavascriptExecutor js = (JavascriptExecutor) driver; 
+		js.executeScript("arguments[0].click();", ArrowDown1);
 
 	}
  
