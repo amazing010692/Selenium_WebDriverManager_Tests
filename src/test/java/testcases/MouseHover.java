@@ -58,7 +58,7 @@ public class MouseHover {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		
 		//Navigate to this site for sample checkbox.
-		driver.get(" https://americangolf.co.uk");
+		driver.get("https://americangolf.co.uk");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
 		//Use Actions class to hover the mouse to Golf Clubs.
