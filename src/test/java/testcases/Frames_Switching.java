@@ -2,7 +2,9 @@ package testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -52,11 +54,15 @@ public class Frames_Switching {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		//Navigate to this site for sample checkbox.
-		driver.get("https://www.geeksforgeeks.org/html-iframes/");
+		driver.get("https://www.wattpad.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
 		//Click the Login button.
+		WebElement buttonLogin = driver.findElement(By.xpath("//button[@class='btn btn-sm']"));
+		buttonLogin.click();
 		
+		//Count the number of frames.
+		System.out.println("Total number of frames: " + driver.findElements(By.tagName("iframe")).size());
 	}
 
 }
