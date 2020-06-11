@@ -63,6 +63,16 @@ public class Frames_Switching {
 		
 		//Count the number of frames.
 		System.out.println("Total number of frames: " + driver.findElements(By.tagName("iframe")).size());
+		
+		//Switch to 1st frame.
+		//driver.switchTo().frame(0);
+		
+		//Input username.
+		WebElement fieldUsername = driver.findElement(By.xpath("//input[@id='login-username']"));
+		fieldUsername.sendKeys("daimonmichiko0801");
+		
+		//Quits WebDriver session.
+		driver.quit();
 	}
 
 }
