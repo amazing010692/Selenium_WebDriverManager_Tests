@@ -110,7 +110,9 @@ public class StaticDynamicDropdowns {
 		emailAddress.sendKeys("yonekura.ryoko@tv-asahi-music.co.jp");
 		
 		//Switch to Dynamic Dropdowns iframe.
+		System.out.println("Total number of frames: " + driver.findElements(By.tagName("iframe")).size());
 		driver.switchTo().frame(0);
+		System.out.println(driver.switchTo().frame(0).getTitle());
 		
 		//Click the Capacity Dropdown List.
 		String xpathArrowDown1 = "//*[@id=\"select2-hq1b-container\"]";
