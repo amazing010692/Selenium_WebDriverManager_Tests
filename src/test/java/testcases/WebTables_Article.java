@@ -68,6 +68,8 @@ public class WebTables_Article {
 		//Extract all the company names from the first column.
 		List<WebElement> companyNames = driver.findElements(By.xpath("//table[@class='dataTable']/tbody/tr/td[1]"));
 		
+		//Extract all the current prices from the first column.
+		List<WebElement> currentPrices = driver.findElements(By.xpath("//table[@class='dataTable']/tbody/tr/td[4]"));
 	}
 
 }
