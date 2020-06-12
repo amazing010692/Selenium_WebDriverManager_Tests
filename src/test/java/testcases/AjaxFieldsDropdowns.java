@@ -66,6 +66,15 @@ public class AjaxFieldsDropdowns {
 		fieldLeavingFrom.sendKeys(Keys.DOWN);
 		fieldLeavingFrom.sendKeys(Keys.DOWN);
 		System.out.println(fieldLeavingFrom.getAttribute("value"));
+		
+		//Navigate to this site for another exercise regarding ajax dropdowns.
+		driver.get("https://www.makemytrip.com/");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		//Click the From field.
+		WebElement linkFrom = driver.findElement(By.xpath("//span[contains(text(),'From')]"));
+		linkFrom.click();
+		
 	}
 
 }
