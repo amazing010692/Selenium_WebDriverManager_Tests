@@ -1,6 +1,7 @@
 package testcases;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -63,6 +64,9 @@ public class WebTables_Article {
 		
 		//Store the preferred company name in a String Variable
 		String companyName = "Hero MotoCorp";
+		
+		//Extract all the company names from the first column.
+		List<WebElement> companyNames = driver.findElements(By.xpath("//table[@class='dataTable']/tbody/tr/td[1]"));
 		
 	}
 
