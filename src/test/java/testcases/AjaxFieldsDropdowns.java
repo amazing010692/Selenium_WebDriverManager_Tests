@@ -1,7 +1,5 @@
 package testcases;
 
-import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -11,17 +9,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class WebTables_Article {
+public class AjaxFieldsDropdowns {
 	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
 
-	public static void main(String[] args) throws InterruptedException, IOException {
+	public static void main(String[] args) throws InterruptedException {
 		
 		if(browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -53,38 +55,13 @@ public class WebTables_Article {
 		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		
-		//Navigate to this site for sample webtable.
-		driver.get("https://money.rediff.com/index.html");
+		//Navigate to this site for sample ajax dropdowns.
+		driver.get("https://ksrtc.in/oprs-web/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
-
-		//Click the "More Gainers" link.
-		WebElement linkMoreGainers = driver.findElement(By.xpath("(//a[contains(text(),'More gainers')])[1]"));
-		linkMoreGainers.click();
 		
-		//Store the preferred company name in a String Variable
-		String companyName = "Hero MotoCorp";
-		
-		//Extract all the company names from the first column.
-		List<WebElement> companyNames = driver.findElements(By.xpath("//table[@class='dataTable']/tbody/tr/td[1]"));
-		
-		//Extract all the current prices from the first column.
-		List<WebElement> currentPrices = driver.findElements(By.xpath("//table[@class='dataTable']/tbody/tr/td[4]"));
-		
-		//Print all company names with their corresponding current prices.
-		for(int i = 0; i < companyNames.size(); i++) {
-			System.out.println(companyNames.get(i).getText() + "--------" + currentPrices.get(i).getText());
-		}
-		
-		//Print only the preferred company declared from the String variable.
-		for(int i = 0; i < companyNames.size(); i++) {
-			if(companyName.equals(companyNames.get(i).getText())) {
-			System.out.println("Preferred Company: " + companyNames.get(i).getText() + "--------" + currentPrices.get(i).getText());
-			}
-		}
-		
-		//Quits WebDriver session.
-		driver.quit();
+		//Use 
 	}
 
 }
