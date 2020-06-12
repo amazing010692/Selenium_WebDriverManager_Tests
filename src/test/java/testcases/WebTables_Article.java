@@ -61,6 +61,9 @@ public class WebTables_Article {
 		WebElement linkMoreGainers = driver.findElement(By.xpath("(//a[contains(text(),'More gainers')])[1]"));
 		linkMoreGainers.click();
 		
+		//Store the preferred company name in a String Variable
+		String companyName = "Hero MotoCorp";
+		
 	}
 
 }
