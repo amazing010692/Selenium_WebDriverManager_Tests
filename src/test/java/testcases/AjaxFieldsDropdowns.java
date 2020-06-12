@@ -3,18 +3,16 @@ package testcases;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -55,13 +53,19 @@ public class AjaxFieldsDropdowns {
 		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		WebDriverWait wait = new WebDriverWait(driver, 20);
 		
 		//Navigate to this site for sample ajax dropdowns.
 		driver.get("https://ksrtc.in/oprs-web/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Use 
+		//Type "BENG" in the Leaving From field.
+		WebElement fieldLeavingFrom = driver.findElement(By.xpath("//input[@id='fromPlaceName']"));
+		fieldLeavingFrom.sendKeys("BENG");
+		
+		//Press the Down key twice and print the attribute value.
+		fieldLeavingFrom.sendKeys(Keys.DOWN);
+		fieldLeavingFrom.sendKeys(Keys.DOWN);
+		System.out.println(fieldLeavingFrom.getAttribute("value"));
 	}
 
 }
