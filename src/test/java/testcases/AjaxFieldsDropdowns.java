@@ -1,5 +1,6 @@
 package testcases;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -90,6 +91,17 @@ public class AjaxFieldsDropdowns {
 		WebElement fieldSearchText = driver.findElement(By.xpath("//input[@id='header-search-input']"));
 		fieldSearchText.sendKeys("hello");
 		Thread.sleep(2000);
+		
+		//Store all the values in the search text field.
+		List<WebElement> values = driver.findElements(By.xpath("//div[@type='normal']"));
+		
+		//Print all the auto-suggestive values in the console.
+		for(int i = 0; i < values.size(); i++) {
+			System.out.println(values.get(i).getText());
+		}
+		
+		//Quits the WebDriver session.
+		driver.quit();
 		
 	}
 
