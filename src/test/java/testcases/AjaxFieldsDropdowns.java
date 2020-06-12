@@ -86,6 +86,11 @@ public class AjaxFieldsDropdowns {
 		driver.get("https://ph.yahoo.com/?p=us");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
+		//Input "hello" in the search text field.
+		WebElement fieldSearchText = driver.findElement(By.xpath("//input[@id='header-search-input']"));
+		fieldSearchText.sendKeys("hello");
+		Thread.sleep(2000);
+		
 	}
 
 }
