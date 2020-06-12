@@ -70,6 +70,21 @@ public class WebTables_Article {
 		
 		//Extract all the current prices from the first column.
 		List<WebElement> currentPrices = driver.findElements(By.xpath("//table[@class='dataTable']/tbody/tr/td[4]"));
+		
+		//Print all company names with their corresponding current prices.
+		for(int i = 0; i < companyNames.size(); i++) {
+			System.out.println(companyNames.get(i).getText() + "--------" + currentPrices.get(i).getText());
+		}
+		
+		//Print only the preferred company declared from the String variable.
+		for(int i = 0; i < companyNames.size(); i++) {
+			if(companyName.equals(companyNames.get(i).getText())) {
+			System.out.println("Preferred Company: " + companyNames.get(i).getText() + "--------" + currentPrices.get(i).getText());
+			}
+		}
+		
+		//Quits WebDriver session.
+		driver.quit();
 	}
 
 }
