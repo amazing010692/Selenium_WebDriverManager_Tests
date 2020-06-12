@@ -75,6 +75,17 @@ public class AjaxFieldsDropdowns {
 		WebElement linkFrom = driver.findElement(By.xpath("//span[contains(text(),'From')]"));
 		linkFrom.click();
 		
+		//Input" MUM" in the search field then press down key and hit Enter.
+		WebElement fieldSearch = driver.findElement(By.xpath("//input[contains(@placeholder,'From')]"));
+		fieldSearch.sendKeys("MUM");
+		fieldSearch.sendKeys(Keys.DOWN);
+		Thread.sleep(1000);
+		fieldSearch.sendKeys(Keys.ENTER);
+		
+		//Navigate to this site for another exercise regarding ajax fields.
+		driver.get("https://ph.yahoo.com/?p=us");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
 	}
 
 }
