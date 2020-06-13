@@ -3,6 +3,8 @@ package testcases;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -53,14 +55,24 @@ public class JavaScript_Executor {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		//Navigate to this site for sample ajax dropdowns.
+		//Navigate to this site for sample javascript executor.
 		driver.get("https://ksrtc.in/oprs-web/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
 		//Type "BENG" in the Leaving From field.
 		WebElement fieldLeavingFrom = driver.findElement(By.xpath("//input[@id='fromPlaceName']"));
 		fieldLeavingFrom.sendKeys("BENG");
-
+		
+		//Press the Down key twice and print the attribute value.
+		fieldLeavingFrom.sendKeys(Keys.DOWN);
+		fieldLeavingFrom.sendKeys(Keys.DOWN);
+		System.out.println(fieldLeavingFrom.getAttribute("value"));
+		
+		//Create an object of JavascriptExecutor interface by Type casting.
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		
+		//Add the return keyworn and store it in a variable.
+		String script = "return document.getElementById(\"fromPlaceName\").value;";
 		
 	}
 
