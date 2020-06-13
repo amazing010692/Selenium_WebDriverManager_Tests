@@ -64,6 +64,7 @@ public class JavaScript_Executor {
 		fieldLeavingFrom.sendKeys("BENG");
 		
 		//Press the Down key twice and print the attribute value.
+		Thread.sleep(1000);
 		fieldLeavingFrom.sendKeys(Keys.DOWN);
 		fieldLeavingFrom.sendKeys(Keys.DOWN);
 		
