@@ -66,13 +66,16 @@ public class JavaScript_Executor {
 		//Press the Down key twice and print the attribute value.
 		fieldLeavingFrom.sendKeys(Keys.DOWN);
 		fieldLeavingFrom.sendKeys(Keys.DOWN);
-		System.out.println(fieldLeavingFrom.getAttribute("value"));
 		
 		//Create an object of JavascriptExecutor interface by Type casting.
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		
-		//Add the return keyworn and store it in a variable.
+		//Add the return keyword and store it in a variable.
 		String script = "return document.getElementById(\"fromPlaceName\").value;";
+		
+		//Execute script and print the text in console.
+		String text = (String) js.executeScript(script);
+		System.out.println(text);
 		
 	}
 
