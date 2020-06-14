@@ -105,12 +105,16 @@ public class Calendars_ArticleTest {
 		System.out.println(travelMonth);
 		
 		//Store the xpath of the month-section.
-		String xpathMonthYearSection = "//div[@class='DayPicker-Caption']";
+		String xpathMonthYearSection = "//div[@class='fareCalFlt ']/div/div[2]/div";
 		
 		//Develop a logic that will keep clicking forward arrow > till we get June 2021 calendar
 		while(!driver.findElement(By.xpath(xpathMonthYearSection)).getText().equals(travelMonth)) {
 			driver.findElement(By.xpath(xpathForwardArrow)).click();
 		}
+		
+		//Select the desired date. This will click day of the month stated in the above d.
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[text()='" + day + "']")).click();
 		
 		//
 	}
