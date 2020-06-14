@@ -15,7 +15,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Calendars_Test {
+public class Calendars_ArticleTest {
 	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
@@ -60,6 +60,9 @@ public class Calendars_Test {
 		//Click the Departure field.
 		WebElement fieldDeparture = driver.findElement(By.xpath("//input[@id='departureCalendar']"));
 		fieldDeparture.click();
+		
+		//Store a predefined date in variable ‘d’. This date is in dd/mm/yyyy format.
+		String d = "14/06/2020";
 	}
 
 }
