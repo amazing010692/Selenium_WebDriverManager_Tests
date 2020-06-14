@@ -74,7 +74,8 @@ public class Calendars_ArticleTest {
 		//Parse the predefined date ‘d’ with the help of parse method. This parse method returns an object of ‘Date’ class.
 		Date mydate = df.parse(d);
 		
-		//
+		//Create a calendar instance.
+		java.util.Calendar cal = java.util.Calendar.getInstance();
 	}
 
 }
