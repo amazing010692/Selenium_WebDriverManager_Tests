@@ -93,7 +93,8 @@ public class Calendars_ArticleTest {
 		Month is printed as numeric 5 which is June (January is represented as 0, Feb as 1, Mar as 2 and so on.
 		Year gets printed as 2021.*/
 		System.out.println(day);
-		System.out.println(month);
+		//System.out.println(month);
+		System.out.println(months[month]);
 		System.out.println(year);
 	}
 
