@@ -1,5 +1,6 @@
 package testcases;
 
+import java.text.SimpleDateFormat;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -64,7 +65,10 @@ public class Calendars_ArticleTest {
 		//Store a predefined date in variable ‘d’. This date is in dd/mm/yyyy format.
 		String d = "14/06/2020";
 		
-		//
+		/*Create an object of existing java class ‘SimpleDateFormat’. 
+		Pass the same dd/mm/yyyy format in the constructor that we have used in our predefined date above*/
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		
 	}
 
 }
