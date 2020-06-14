@@ -2,7 +2,9 @@ package testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -55,7 +57,9 @@ public class Calendars_Test {
 		driver.get("https://www.goibibo.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Type
+		//Click the Departure field.
+		WebElement fieldDeparture = driver.findElement(By.xpath("//input[@id='departureCalendar']"));
+		fieldDeparture.click();
 	}
 
 }
