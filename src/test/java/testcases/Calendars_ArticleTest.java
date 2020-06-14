@@ -67,6 +67,10 @@ public class Calendars_ArticleTest {
 		//Store a predefined date in variable ‘d’. This date is in dd/mm/yyyy format.
 		String d = "14/06/2021";
 		
+		//Create a month array & enter all the months inside it.
+		String[] months = {"January", "February", "March", "April", "May", "June", 
+				"July", "August", "September", "October", "November", "December"};
+		
 		/*Create an object of existing java class ‘SimpleDateFormat’. 
 		Pass the same dd/mm/yyyy format in the constructor that we have used in our predefined date above*/
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
