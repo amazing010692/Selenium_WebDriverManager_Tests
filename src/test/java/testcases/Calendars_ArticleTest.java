@@ -96,6 +96,10 @@ public class Calendars_ArticleTest {
 		//System.out.println(month);
 		System.out.println(months[month]);
 		System.out.println(year);
+		
+		//Develop a logic that will keep clicking forward arrow > till we get June 2021 calendar
+		WebElement buttonForward = driver.findElement(By.xpath("//span[@class='DayPicker-NavButton DayPicker-NavButton--next']"));
+		buttonForward.click();
 	}
 
 }
