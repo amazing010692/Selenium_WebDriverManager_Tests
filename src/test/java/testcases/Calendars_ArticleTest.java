@@ -1,6 +1,8 @@
 package testcases;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -21,7 +23,7 @@ public class Calendars_ArticleTest {
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, ParseException {
 		
 		if(browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -69,6 +71,8 @@ public class Calendars_ArticleTest {
 		Pass the same dd/mm/yyyy format in the constructor that we have used in our predefined date above*/
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		
+		//Parse the predefined date ‘d’ with the help of parse method. This parse method returns an object of ‘Date’ class.
+		Date mydate = df.parse(d);
 	}
 
 }
