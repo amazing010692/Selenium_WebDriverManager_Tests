@@ -65,7 +65,7 @@ public class Calendars_ArticleTest {
 		fieldDeparture.click();
 		
 		//Store a predefined date in variable ‘d’. This date is in dd/mm/yyyy format.
-		String d = "14/06/2021";
+		String d = "28/03/2021";
 		
 		//Create a month array & enter all the months inside it.
 		String[] months = {"January", "February", "March", "April", "May", "June", 
@@ -116,7 +116,6 @@ public class Calendars_ArticleTest {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[text()='" + day + "']")).click();
 		
-		//
 	}
 
 }
