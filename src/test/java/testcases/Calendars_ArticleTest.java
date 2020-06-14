@@ -63,6 +63,8 @@ public class Calendars_ArticleTest {
 		
 		//Store a predefined date in variable ‘d’. This date is in dd/mm/yyyy format.
 		String d = "14/06/2020";
+		
+		//
 	}
 
 }
