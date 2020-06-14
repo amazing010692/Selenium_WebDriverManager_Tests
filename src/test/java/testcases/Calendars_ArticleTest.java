@@ -97,9 +97,22 @@ public class Calendars_ArticleTest {
 		System.out.println(months[month]);
 		System.out.println(year);
 		
+		//Store the xpath of the forward arrow button in a String variable.
+		String xpathForwardArrow = "//span[@class='DayPicker-NavButton DayPicker-NavButton--next']";
+		
+		//Create a string that is equal to month concatenated by white space concatenated by year.
+		String travelMonth = months[month] + " " + year;
+		System.out.println(travelMonth);
+		
+		//Store the xpath of the month-section.
+		String xpathMonthYearSection = "//div[@class='DayPicker-Caption']";
+		
 		//Develop a logic that will keep clicking forward arrow > till we get June 2021 calendar
-		WebElement buttonForward = driver.findElement(By.xpath("//span[@class='DayPicker-NavButton DayPicker-NavButton--next']"));
-		buttonForward.click();
+		while(!driver.findElement(By.xpath(xpathMonthYearSection)).getText().equals(travelMonth)) {
+			driver.findElement(By.xpath(xpathForwardArrow)).click();
+		}
+		
+		//
 	}
 
 }
