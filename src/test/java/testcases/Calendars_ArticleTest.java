@@ -76,6 +76,9 @@ public class Calendars_ArticleTest {
 		
 		//Create a calendar instance.
 		java.util.Calendar cal = java.util.Calendar.getInstance();
+		
+		//Set date in calendar using setTime method
+		cal.setTime(mydate);
 	}
 
 }
