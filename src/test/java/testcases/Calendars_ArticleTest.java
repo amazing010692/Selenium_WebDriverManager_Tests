@@ -65,7 +65,7 @@ public class Calendars_ArticleTest {
 		fieldDeparture.click();
 		
 		//Store a predefined date in variable ‘d’. This date is in dd/mm/yyyy format.
-		String d = "14/06/2020";
+		String d = "14/06/2021";
 		
 		/*Create an object of existing java class ‘SimpleDateFormat’. 
 		Pass the same dd/mm/yyyy format in the constructor that we have used in our predefined date above*/
@@ -83,9 +83,11 @@ public class Calendars_ArticleTest {
 		//Get the day, month and year using ‘get’ method.
 		int day = cal.get(java.util.Calendar.DAY_OF_MONTH);
 		int month = cal.get(java.util.Calendar.MONTH);
-		int year = cal.get(java.util.Calendar.MONTH);
+		int year = cal.get(java.util.Calendar.YEAR);
 		
-		//Print it in the console. Month is printed as numeric 5 (January is represented as 0, Feb as 1, Mar as 2 and so on.
+		/*Print it in the console. The day is printed as 14.
+		Month is printed as numeric 5 which is June (January is represented as 0, Feb as 1, Mar as 2 and so on.
+		Year gets printed as 2021.*/
 		System.out.println(day);
 		System.out.println(month);
 		System.out.println(year);
