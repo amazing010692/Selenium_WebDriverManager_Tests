@@ -56,7 +56,7 @@ public class Calendars_ArticleTest {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		//Navigate to this site for sample javascript executor.
+		//Navigate to this site for sample calendar.
 		driver.get("https://www.goibibo.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
@@ -77,8 +77,18 @@ public class Calendars_ArticleTest {
 		//Create a calendar instance.
 		java.util.Calendar cal = java.util.Calendar.getInstance();
 		
-		//Set date in calendar using setTime method
+		//Set date in calendar using setTime method.
 		cal.setTime(mydate);
+		
+		//Get the day, month and year using ‘get’ method.
+		int day = cal.get(java.util.Calendar.DAY_OF_MONTH);
+		int month = cal.get(java.util.Calendar.MONTH);
+		int year = cal.get(java.util.Calendar.MONTH);
+		
+		//Print it in the console. Month is printed as numeric 5 (January is represented as 0, Feb as 1, Mar as 2 and so on.
+		System.out.println(day);
+		System.out.println(month);
+		System.out.println(year);
 	}
 
 }
