@@ -78,7 +78,16 @@ public class ComboBoxes {
 			System.out.println(allIndustries.get(i).getText());
 		}
 		
-		//
+		//Select "Education" checkbox.
+		for(int i = 0; i < allIndustries.size(); i++) {
+			if(allIndustries.get(i).getText().equalsIgnoreCase(industry)) {
+				allIndustries.get(i).click();
+			}
+		}
+		
+		//Quits WebDriver session.
+		Thread.sleep(2000);
+		driver.quit();
 	}
 
 }
