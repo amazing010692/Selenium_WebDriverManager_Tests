@@ -72,6 +72,13 @@ public class ComboBoxes {
 		
 		//Store all industries in a list.
 		List<WebElement> allIndustries = driver.findElements(By.xpath("//div[@id='industryDisplay']/div/div/div/label"));
+		
+		//Print all the industries using the ‘for’ loop.
+		for(int i = 0; i < allIndustries.size(); i++) {
+			System.out.println(allIndustries.get(i).getText());
+		}
+		
+		//
 	}
 
 }
