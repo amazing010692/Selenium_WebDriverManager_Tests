@@ -2,7 +2,9 @@ package testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -55,7 +57,10 @@ public class ComboBoxes {
 		driver.get("https://www.jobserve.com/in/en/Job-Search/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Type "BENG" 
+		//Click the Industry Dropdown.
+		String xpath_inDrop = "//span[@id='ddcl-selInd']//span[@class='ui-dropdownchecklist-selector ui-state-default']";
+		WebElement dropdownIndustry = driver.findElement(By.xpath(xpath_inDrop));
+		dropdownIndustry.click();
 		
 	}
 
