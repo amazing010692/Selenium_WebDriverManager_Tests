@@ -1,5 +1,6 @@
 package testcases;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -62,6 +63,15 @@ public class ComboBoxes {
 		WebElement dropdownIndustry = driver.findElement(By.xpath(xpath_inDrop));
 		dropdownIndustry.click();
 		
+		//De-select the "Select All Industries" checkbox.
+		WebElement checkboxSelectAll = driver.findElement(By.xpath("//label[contains(text(),'Select All Industries')]"));
+		checkboxSelectAll.click();
+		
+		//Create a string variable and store ‘Education’ value in it.
+		String industry = "Education";
+		
+		//Store all industries in a list.
+		List<WebElement> allIndustries = driver.findElements(By.xpath("//div[@id='industryDisplay']/div/div/div/label"));
 	}
 
 }
