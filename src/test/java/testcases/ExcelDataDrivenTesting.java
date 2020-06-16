@@ -53,6 +53,9 @@ public class ExcelDataDrivenTesting {
 		//Create FileInputStream object pointing towards the excel (make sure that the filepath is within double quotes
 		FileInputStream fis = new FileInputStream("C:\\Users\\hello\\Documents\\TestDataExcel.xlsx");
 		
+		//Create an object of XSSFWorkbook class to take control of the entire excel application.
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);	
+		
 		/*
 		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
