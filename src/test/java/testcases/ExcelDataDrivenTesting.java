@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -58,18 +59,14 @@ public class ExcelDataDrivenTesting {
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);	
 		
 		//Below logic to fetch “TestData” sheet from "TestDataExcel" file.
+		int sheets = workbook.getNumberOfSheets();						//Iterate through each sheet
+		for(int i = 0; i < sheets; i++) {
+			if(workbook.getSheetName(i).equalsIgnoreCase("TestData")) {
+				XSSFSheet sheet = workbook.getSheetAt(i);				//Grab "TestData" sheet
+			}
+		}
 		
-		
-		
-		/*
-		//Pre-conditions | Maximize the browser and apply implicit waits.
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-		//Navigate to this site for sample combo boxes.
-		driver.get("https://www.jobserve.com/in/en/Job-Search/");
-		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
-		*/
+		//
 	}
 
 }
