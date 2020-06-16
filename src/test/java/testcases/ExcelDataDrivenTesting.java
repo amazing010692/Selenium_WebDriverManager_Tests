@@ -1,5 +1,8 @@
 package testcases;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -18,7 +21,7 @@ public class ExcelDataDrivenTesting {
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		
 		if(browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -47,6 +50,10 @@ public class ExcelDataDrivenTesting {
 		
 		}
 		
+		//Create FileInputStream object pointing towards the excel (make sure that the filepath is within double quotes
+		FileInputStream fis = new FileInputStream("C:\\Users\\hello\\Documents\\TestDataExcel.xlsx");
+		
+		/*
 		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -54,8 +61,7 @@ public class ExcelDataDrivenTesting {
 		//Navigate to this site for sample combo boxes.
 		driver.get("https://www.jobserve.com/in/en/Job-Search/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
-		
-		//Click the 
+		*/
 	}
 
 }
