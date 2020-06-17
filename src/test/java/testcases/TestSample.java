@@ -11,7 +11,7 @@ public class TestSample {
 		ExcelDemo ed = new ExcelDemo();
 		
 		//Since getData method returns an array list, so
-		 ArrayList<String> data = ed.getdata("TC4");
+		 ArrayList<String> data = ed.getdata("TC1");
 		 
 		 //Now we know that an array stores data in indices, so
 		 System.out.println(data.get(0));
