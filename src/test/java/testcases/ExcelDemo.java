@@ -18,7 +18,7 @@ public class ExcelDemo {
 		//First create an ArrayList of type String
 		ArrayList<String> a = new ArrayList<String>();
 		
-		//Create FileInputStream object pointing towards the excel (make sure that the filepath is within double quotes
+		//Create FileInputStream object pointing towards the excel (make sure that the Filepath is within double quotes
 		FileInputStream fis = new FileInputStream("C:\\Users\\hello\\Documents\\TestDataExcel.xlsx");
 		
 		//Create an object of XSSFWorkbook class to take control of the entire excel application.
