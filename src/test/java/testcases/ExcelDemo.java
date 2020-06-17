@@ -2,17 +2,21 @@ package testcases;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.apache.poi.ss.formula.functions.Rows;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ExcelDataDrivenTesting {
+public class ExcelDemo {
 
-	public static void main(String[] args) throws InterruptedException, IOException {
+	//public static void main(String[] args) throws IOException {
+	public ArrayList<String> getdata(String testCaseName) throws IOException {
+		
+		//First create an ArrayList of type String
+		ArrayList<String> a = new ArrayList<String>();
 		
 		//Create FileInputStream object pointing towards the excel (make sure that the filepath is within double quotes
 		FileInputStream fis = new FileInputStream("C:\\Users\\hello\\Documents\\TestDataExcel.xlsx");
@@ -51,17 +55,20 @@ public class ExcelDataDrivenTesting {
 				Once we have access to desired row, we will get access to all cells of the ‘TC3’ test case row*/
 				while(rows.hasNext()) {
 					Row r = rows.next();
-					if(r.getCell(column).getStringCellValue().equalsIgnoreCase("TC3")) {
+					//if(r.getCell(column).getStringCellValue().equalsIgnoreCase("TC3")) {
+					if(r.getCell(column).getStringCellValue().equalsIgnoreCase(testCaseName)) {
 						//After grabbing "TC3" test case row, we will get the cell contents of that row.
 						Iterator<Cell> cv = r.cellIterator(); //Iterate through each cell of TC3 row.
 						while(cv.hasNext()) {
-							System.out.println(cv.next().getStringCellValue());
+							//System.out.println(cv.next().getStringCellValue());
+							a.add(cv.next().getStringCellValue());
 						}
 					}
-				}
+				}	
 			}
 		}
-		
+		//Return the array after the first ‘for’ loop is over,
+		return a;
 				
 	}
 
