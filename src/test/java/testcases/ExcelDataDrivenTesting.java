@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
+import org.apache.poi.ss.formula.functions.Rows;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -45,10 +46,16 @@ public class ExcelDataDrivenTesting {
 				}
 				//Print the value of ‘column’ variable
 				System.out.println(column);
+				
+				/*Next we will scan all the rows of ‘Testcases’ column and find where ‘TC3’ test case row is. 
+				Once we have access to desired row, we will get access to all cells of the ‘TC3’ test case row*/
+				while(rows.hasNext()) {
+					Row r = rows.next();
+				}
 			}
 		}
 		
-		//test
+				
 	}
 
 }
