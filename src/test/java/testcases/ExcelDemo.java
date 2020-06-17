@@ -49,7 +49,7 @@ public class ExcelDemo {
 					k++;
 				}
 				//Print the value of ‘column’ variable
-				System.out.println(column);
+				//System.out.println(column);
 				
 				/*Next we will scan all the rows of ‘Testcases’ column and find where ‘TC3’ test case row is. 
 				Once we have access to desired row, we will get access to all cells of the ‘TC3’ test case row*/
