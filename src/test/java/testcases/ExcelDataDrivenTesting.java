@@ -51,6 +51,13 @@ public class ExcelDataDrivenTesting {
 				Once we have access to desired row, we will get access to all cells of the ‘TC3’ test case row*/
 				while(rows.hasNext()) {
 					Row r = rows.next();
+					if(r.getCell(column).getStringCellValue().equalsIgnoreCase("TC3")) {
+						//After grabbing "TC3" test case row, we will get the cell contents of that row.
+						Iterator<Cell> cv = r.cellIterator(); //Iterate through each cell of TC3 row.
+						while(cv.hasNext()) {
+							System.out.println(cv.next().getStringCellValue());
+						}
+					}
 				}
 			}
 		}
