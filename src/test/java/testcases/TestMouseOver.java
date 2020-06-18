@@ -62,8 +62,12 @@ public class TestMouseOver {
 		boxSearch.sendKeys("way2automation");
 		
 		//Click Google Search.
-		WebElement searchGoogle = driver.findElement(By.xpath("//input[@name='btnK'])[1]"));
+		WebElement searchGoogle = driver.findElement(By.xpath("(//input[@name='btnK'])[1]"));
 		searchGoogle.click();
+		
+		//Click the 1st Google Result.
+		WebElement linkResult = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div[1]/a/h3"));
+		linkResult.click();
 	}
 
 }
