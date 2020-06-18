@@ -9,12 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -55,13 +52,18 @@ public class TestMouseOver {
 		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		WebDriverWait wait = new WebDriverWait(driver, 20);
 		
 		//Navigate to this site for sample checkbox.
-		driver.get("https://americangolf.co.uk");
+		driver.get("https://www.google.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
+		//In the Search box, input "way2automation".
+		WebElement boxSearch = driver.findElement(By.xpath("//input[@name='q']"));
+		boxSearch.sendKeys("way2automation");
 		
+		//Click Google Search.
+		WebElement searchGoogle = driver.findElement(By.xpath("//input[@name='btnK'])[1]"));
+		searchGoogle.click();
 	}
 
 }
