@@ -16,7 +16,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestSliders {
+public class TestResizable {
 	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
@@ -54,26 +54,11 @@ public class TestSliders {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		//Navigate to this site for sample test sliders.
-		driver.get("https://jqueryui.com/resources/demos/slider/default.html");
+		//Navigate to this site for sample resizable object.
+		driver.get("https://jqueryui.com/resources/demos/resizable/default.html");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Drag and drop the slider using Actions class.
-		Actions action = new Actions(driver);
-		WebElement miniSlider = driver.findElement(By.xpath("//*[@id=\"slider\"]/span"));
-		action.dragAndDropBy(miniSlider, 400, 0).perform();
-		System.out.println("Move the slider 400 offset in the x-axis.");
-		
-		//Navigate to this site for sample checkbox.
-		driver.get("https://jqueryui.com/resources/demos/slider/default.html");
-		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
-		
-		//Drag and drop the slider to the middle measurement of the main horizontal slider.
-		WebElement horizontalSlider = driver.findElement(By.xpath("//*[@id=\"slider\"]"));
-		WebElement miniSlider1 = driver.findElement(By.xpath("//*[@id=\"slider\"]/span"));
-		int half_width = horizontalSlider.getSize().width/2;
-		action.dragAndDropBy(miniSlider1, half_width, 0).perform();
-		System.out.println("Move the slider in the middle measurement of the main horizontal slider.");
+		//Drag 
 	}
 
 }
