@@ -64,7 +64,7 @@ public class TestSliders {
 		action.dragAndDropBy(miniSlider, 400, 0).perform();
 		System.out.println("Move the slider 400 offset in the x-axis.");
 		
-		//Navigate to this site for sample checkbox.
+		//Navigate to this site for test sliders.
 		driver.get("https://jqueryui.com/resources/demos/slider/default.html");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		

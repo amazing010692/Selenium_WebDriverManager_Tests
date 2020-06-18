@@ -58,7 +58,7 @@ public class TestResizable {
 		driver.get("https://jqueryui.com/resources/demos/resizable/default.html");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Drag 
+		//Drag and drop the resizable using Actions class.
 	}
 
 }
