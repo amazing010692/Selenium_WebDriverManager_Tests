@@ -74,6 +74,10 @@ public class TestMouseOver {
 		Actions action = new Actions(driver);
 		WebElement menuResources = driver.findElement(By.xpath("//a[contains(text(),'Resources')]"));
 		action.moveToElement(menuResources).perform();
+		
+		//Click "Practice site 1"
+		WebElement linkPracticeSite1 = driver.findElement(By.xpath("//a[contains(text(),'Practice site 1')]"));
+		linkPracticeSite1.click();
 	}
 
 }
