@@ -13,6 +13,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -53,6 +55,7 @@ public class TestMouseOver {
 		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		
 		//Navigate to this site for sample checkbox.
 		driver.get("https://www.google.com/");
@@ -69,15 +72,19 @@ public class TestMouseOver {
 		//Click the 1st Google Result.
 		WebElement linkResult = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div[1]/a/h3"));
 		linkResult.click();
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
 		//Hover the mouse to "RESOURCES" menu using Actions class.
 		Actions action = new Actions(driver);
 		WebElement menuResources = driver.findElement(By.xpath("//a[contains(text(),'Resources')]"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Resources')]")));
 		action.moveToElement(menuResources).perform();
 		
 		//Click "Practice site 1"
 		WebElement linkPracticeSite1 = driver.findElement(By.xpath("//a[contains(text(),'Practice site 1')]"));
 		linkPracticeSite1.click();
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
 	}
 
 }
