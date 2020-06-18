@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -68,6 +69,11 @@ public class TestMouseOver {
 		//Click the 1st Google Result.
 		WebElement linkResult = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div[1]/a/h3"));
 		linkResult.click();
+		
+		//Hover the mouse to "RESOURCES" menu using Actions class.
+		Actions action = new Actions(driver);
+		WebElement menuResources = driver.findElement(By.xpath("//a[contains(text(),'Resources')]"));
+		action.moveToElement(menuResources).perform();
 	}
 
 }
