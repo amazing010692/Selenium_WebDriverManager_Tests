@@ -16,7 +16,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestRightClick {
+public class TestRightClick_05 {
 	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
