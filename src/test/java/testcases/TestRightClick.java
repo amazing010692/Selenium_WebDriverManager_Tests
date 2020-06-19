@@ -75,8 +75,16 @@ public class TestRightClick {
 		//Click "How To Setup".
 		WebElement optionHowToSetup = driver.findElement(By.xpath("//td[@id='dm2m3i1tdT']"));
 		action.click(optionHowToSetup).perform();
-		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
+		//The title of each window including the parent window gets printed.
+		java.util.Iterator<String> iter = driver.getWindowHandles().iterator();	
+		while(iter.hasNext()) {
+			driver.switchTo().window(iter.next());
+			System.out.println(driver.getTitle());
+		}
+		
+		//Quits the WebDriver session.
+		driver.quit();
 	}
 
 }
