@@ -58,11 +58,12 @@ public class TestDragDrop {
 		driver.get("https://jqueryui.com/resources/demos/droppable/default.html");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Drag and drop the resizable object using Actions class.
+		//Drag and drop the objects using Actions class.
 		Actions action = new Actions(driver);
-		WebElement handlerResizable = driver.findElement(By.xpath("//*[@id=\"resizable\"]/div[3]"));
-		action.dragAndDropBy(handlerResizable, 400, 400).perform();
-		System.out.println("Resize the handler 400 offset both to x-axis and y-axis.");
+		WebElement draggableObject = driver.findElement(By.xpath("//div[@id='draggable']"));
+		WebElement droppableObject = driver.findElement(By.xpath("//div[@id='droppable']"));
+		action.dragAndDrop(draggableObject, droppableObject).perform();
+		System.out.println("Successfully performed drag and drop of objects.");
 	}
 
 }
