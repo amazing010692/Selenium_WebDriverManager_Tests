@@ -1,16 +1,11 @@
 package testcases;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -51,21 +46,25 @@ public class ResizeBrowserWindow_04 {
 		
 		}
 		
-		//Browser will open in a specific size using the Dimension class.
-		Dimension dimension = new Dimension(500, 300);
-		driver.manage().window().setSize(dimension);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
+
 		//Navigate to this site for sample resizable object.
 		driver.get("https://www.google.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
-		/*
-		//Drag and drop the resizable object using Actions class.
-		Actions action = new Actions(driver);
-		WebElement handlerResizable = driver.findElement(By.xpath("//*[@id=\"resizable\"]/div[3]"));
-		action.dragAndDropBy(handlerResizable, 400, 400).perform();
-		System.out.println("Resize the handler 400 offset both to x-axis and y-axis.");
-		*/
+		
+		//Store the values in integer variables.
+		int width = 300;
+		int height = 150;
+		int sizeIncrement = 20;
+		int browserHeight = driver.manage().window().getSize().getHeight();
+		int round = (browserHeight-height)/sizeIncrement; 
+		
+		//Create loop for slowly increasing the window size
+		for (int i=1; i<=round;i++) {
+			width = width + sizeIncrement;
+			height = height + sizeIncrement;
+			Dimension dimension = new Dimension(width, height);
+			driver.manage().window().setSize(dimension);	
+		}
 	}
 
 }
