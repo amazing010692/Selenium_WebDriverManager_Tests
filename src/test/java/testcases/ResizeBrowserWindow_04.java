@@ -3,6 +3,7 @@ package testcases;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -50,19 +51,21 @@ public class ResizeBrowserWindow_04 {
 		
 		}
 		
-		//Pre-conditions | Maximize the browser and apply implicit waits.
-		driver.manage().window().maximize();
+		//Browser will open in a specific size using the Dimension class.
+		Dimension dimension = new Dimension(500, 300);
+		driver.manage().window().setSize(dimension);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		//Navigate to this site for sample resizable object.
-		driver.get("https://jqueryui.com/resources/demos/resizable/default.html");
+		driver.get("https://www.google.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
-		
+		/*
 		//Drag and drop the resizable object using Actions class.
 		Actions action = new Actions(driver);
 		WebElement handlerResizable = driver.findElement(By.xpath("//*[@id=\"resizable\"]/div[3]"));
 		action.dragAndDropBy(handlerResizable, 400, 400).perform();
 		System.out.println("Resize the handler 400 offset both to x-axis and y-axis.");
+		*/
 	}
 
 }
