@@ -58,12 +58,16 @@ public class TestRightClick {
 		driver.get("http://deluxe-menu.com/popup-mode-sample.html");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Drag and drop the objects using Actions class.
+		//Right click in an image.
 		Actions action = new Actions(driver);
-		WebElement draggableObject = driver.findElement(By.xpath("//div[@id='draggable']"));
-		WebElement droppableObject = driver.findElement(By.xpath("//div[@id='droppable']"));
-		action.dragAndDrop(draggableObject, droppableObject).perform();
-		System.out.println("Successfully performed drag and drop of objects.");
+		WebElement image = driver.findElement(By.xpath("//p[contains(text(),'Click the image to show the menu')]"));
+		action.contextClick(image).perform();
+		System.out.println("Successfully right click an image.");
+		
+		//Move mouse to "Product Info".\
+		WebElement optionProductInfo = driver.findElement(By.xpath("//td[@id='dm2m1i1tdT']"));
+		action.moveToElement(optionProductInfo).perform();
+		
 	}
 
 }
