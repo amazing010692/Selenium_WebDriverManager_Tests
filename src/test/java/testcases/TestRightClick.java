@@ -64,9 +64,17 @@ public class TestRightClick {
 		action.contextClick(image).perform();
 		System.out.println("Successfully right click an image.");
 		
-		//Move mouse to "Product Info".\
+		//Move mouse to "Product Info".
 		WebElement optionProductInfo = driver.findElement(By.xpath("//td[@id='dm2m1i1tdT']"));
 		action.moveToElement(optionProductInfo).perform();
+		
+		//Move mouse to "Installation".
+		WebElement optionInstallation = driver.findElement(By.xpath("//td[@id='dm2m2i1tdT']"));
+		action.moveToElement(optionInstallation).perform();
+		
+		//Click "How To Setup".
+		WebElement optionHowToSetup = driver.findElement(By.xpath("//td[@id='dm2m3i1tdT']"));
+		action.click(optionHowToSetup).perform();
 		
 	}
 
