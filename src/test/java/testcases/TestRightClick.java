@@ -75,6 +75,7 @@ public class TestRightClick {
 		//Click "How To Setup".
 		WebElement optionHowToSetup = driver.findElement(By.xpath("//td[@id='dm2m3i1tdT']"));
 		action.click(optionHowToSetup).perform();
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
 	}
 
