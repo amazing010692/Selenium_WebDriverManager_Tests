@@ -46,7 +46,6 @@ public class ResizeBrowserWindow_04 {
 		
 		}
 		
-
 		//Navigate to this site for sample resizable object.
 		driver.get("https://www.google.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
@@ -56,15 +55,18 @@ public class ResizeBrowserWindow_04 {
 		int height = 150;
 		int sizeIncrement = 20;
 		int browserHeight = driver.manage().window().getSize().getHeight();
-		int round = (browserHeight-height)/sizeIncrement; 
+		int notMax = (browserHeight-height)/sizeIncrement; 
 		
 		//Create loop for slowly increasing the window size
-		for (int i=1; i<=round;i++) {
+		for (int i = 1; i <= notMax; i++) {
 			width = width + sizeIncrement;
 			height = height + sizeIncrement;
 			Dimension dimension = new Dimension(width, height);
 			driver.manage().window().setSize(dimension);	
 		}
+		
+		//Quits WebDriver session.
+		driver.quit();
 	}
 
 }
