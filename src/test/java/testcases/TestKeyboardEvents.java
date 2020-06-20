@@ -66,8 +66,13 @@ public class TestKeyboardEvents {
 		action.sendKeys(Keys.ENTER).perform();
 		System.out.println("Email address has been successfully inputted.");
 		
+		//Navigating back in browser 
+		Thread.sleep(3000);
+	    driver.navigate().back();
+	    
 		//Click outside the Input field and hit "CTRL + A" and "CTRL + C".
-		WebElement fieldOutside = driver.findElement(By.xpath("//*[@id=\"view_container\"]/div/div"));
+	    Thread.sleep(3000);
+		WebElement fieldOutside = driver.findElement(By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div"));
 		fieldOutside.click();
 		System.out.println("Successfully clicked the outside field.");
 		action.sendKeys(Keys.chord(Keys.CONTROL + "A")).perform();
