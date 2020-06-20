@@ -19,7 +19,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestKeyboardEvents {
 	
-	public static String browser = "opera"; //excel sheet
+	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
 
 	public static void main(String[] args) throws InterruptedException {
@@ -65,6 +65,7 @@ public class TestKeyboardEvents {
 		fieldEmail.sendKeys("trainer@way2automation.com");
 		action.sendKeys(Keys.ENTER).perform();
 		System.out.println("Email address has been successfully inputted.");
+		Thread.sleep(2000);
 		
 		//Navigate to this site for sample keyboard events.
 		driver.get("https://en.wikipedia.org/wiki/Main_Page");
@@ -74,13 +75,13 @@ public class TestKeyboardEvents {
 		WebElement fieldOutside = driver.findElement(By.xpath("//div[@class='mw-parser-output']"));
 		fieldOutside.click();
 		System.out.println("Successfully clicked the outside field.");
-		action.sendKeys(Keys.chord(Keys.CONTROL + "A")).perform();
-		action.sendKeys(Keys.chord(Keys.CONTROL + "C")).perform();
+		action.sendKeys(Keys.chord(Keys.CONTROL + "A")).build().perform();
+		action.sendKeys(Keys.chord(Keys.CONTROL + "C")).build().perform();
 		
 		//Click again the Email Address field and hit "CTRL + V".
-		WebElement fieldEmail1 = driver.findElement(By.xpath("//input[@id='identifierId']"));
-		fieldEmail1.click();
-		action.sendKeys(Keys.chord(Keys.CONTROL + "V")).perform();
+		WebElement fieldSearch = driver.findElement(By.xpath("//input[@id='searchInput']"));
+		fieldSearch.click();
+		action.sendKeys(Keys.chord(Keys.CONTROL + "V")).build().perform();
 		
 	}
 
