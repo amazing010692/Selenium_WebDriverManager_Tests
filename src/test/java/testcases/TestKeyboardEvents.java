@@ -3,6 +3,7 @@ package testcases;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -58,11 +59,12 @@ public class TestKeyboardEvents {
 		driver.get("https://gmail.com");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Right click in an image.
+		//Hit Enter key after filling out the Email Address field.
 		Actions action = new Actions(driver);
-		WebElement image = driver.findElement(By.xpath("//p[contains(text(),'Click the image to show the menu')]"));
-		action.contextClick(image).perform();
-		System.out.println("Successfully right click an image.");
+		WebElement fieldEmail = driver.findElement(By.xpath("//input[@id='identifier']"));
+		fieldEmail.sendKeys("trainer@way2automation.com");
+		action.sendKeys(Keys.ENTER).perform();
+		System.out.println("Email address has been successfully inputted.");
 		
 	}
 
