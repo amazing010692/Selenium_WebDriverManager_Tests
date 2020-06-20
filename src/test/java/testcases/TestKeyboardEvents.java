@@ -61,7 +61,7 @@ public class TestKeyboardEvents {
 		
 		//Hit Enter key after filling out the Email Address field.
 		Actions action = new Actions(driver);
-		WebElement fieldEmail = driver.findElement(By.xpath("//input[@id='identifier']"));
+		WebElement fieldEmail = driver.findElement(By.xpath("//input[@id='identifierId']"));
 		fieldEmail.sendKeys("trainer@way2automation.com");
 		action.sendKeys(Keys.ENTER).perform();
 		System.out.println("Email address has been successfully inputted.");
