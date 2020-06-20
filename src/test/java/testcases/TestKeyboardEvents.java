@@ -84,8 +84,8 @@ public class TestKeyboardEvents {
 		WebElement fieldSearch = driver.findElement(By.xpath("//input[@id='searchInput']"));
 		fieldSearch.click();
 		action1.keyDown(Keys.CONTROL).sendKeys(Keys.chord("v")).perform();
-
-		
+		System.out.println("Successfully pasted some contents in the Search Field.");
+	
 	}
 
 }
