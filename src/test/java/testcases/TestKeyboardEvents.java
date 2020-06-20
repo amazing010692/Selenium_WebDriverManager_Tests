@@ -72,16 +72,16 @@ public class TestKeyboardEvents {
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 	    
 		//Click outside the Input field and hit "CTRL + A" and "CTRL + C".
-		WebElement fieldOutside = driver.findElement(By.xpath("//div[@class='mw-parser-output']"));
+		WebElement fieldOutside = driver.findElement(By.xpath("//*[@id=\"From_today's_featured_article\"]"));
 		fieldOutside.click();
 		System.out.println("Successfully clicked the outside field.");
-		action.sendKeys(Keys.chord(Keys.CONTROL + "A")).build().perform();
-		action.sendKeys(Keys.chord(Keys.CONTROL + "C")).build().perform();
+		action.sendKeys(Keys.chord(Keys.CONTROL + "a")).build().perform();
+		action.sendKeys(Keys.chord(Keys.CONTROL + "c")).build().perform();
 		
-		//Click again the Email Address field and hit "CTRL + V".
+		//Click in the Search and hit "CTRL + V".
 		WebElement fieldSearch = driver.findElement(By.xpath("//input[@id='searchInput']"));
 		fieldSearch.click();
-		action.sendKeys(Keys.chord(Keys.CONTROL + "V")).build().perform();
+		action.sendKeys(Keys.chord(Keys.CONTROL + "v")).build().perform();
 		
 	}
 
