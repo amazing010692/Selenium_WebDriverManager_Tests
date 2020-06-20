@@ -19,7 +19,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestKeyboardEvents {
 	
-	public static String browser = "chrome"; //excel sheet
+	public static String browser = "opera"; //excel sheet
 	public static WebDriver driver;
 
 	public static void main(String[] args) throws InterruptedException {
@@ -66,24 +66,21 @@ public class TestKeyboardEvents {
 		action.sendKeys(Keys.ENTER).perform();
 		System.out.println("Email address has been successfully inputted.");
 		
-		//Navigating back in browser 
-		Thread.sleep(3000);
-	    driver.navigate().back();
+		//Navigate to this site for sample keyboard events.
+		driver.get("https://en.wikipedia.org/wiki/Main_Page");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 	    
 		//Click outside the Input field and hit "CTRL + A" and "CTRL + C".
-	    Thread.sleep(3000);
-		WebElement fieldOutside = driver.findElement(By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div"));
+		WebElement fieldOutside = driver.findElement(By.xpath("//div[@class='mw-parser-output']"));
 		fieldOutside.click();
 		System.out.println("Successfully clicked the outside field.");
 		action.sendKeys(Keys.chord(Keys.CONTROL + "A")).perform();
 		action.sendKeys(Keys.chord(Keys.CONTROL + "C")).perform();
 		
-		//In the Password field, hit "CTRL + V".
-		WebElement fieldPassword = driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input"));
-		fieldPassword.click();
+		//Click again the Email Address field and hit "CTRL + V".
+		WebElement fieldEmail1 = driver.findElement(By.xpath("//input[@id='identifierId']"));
+		fieldEmail1.click();
 		action.sendKeys(Keys.chord(Keys.CONTROL + "V")).perform();
-		WebElement viewPass = driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/span/div/span/span/span[2]/svg"));
-		viewPass.click();
 		
 	}
 
