@@ -2,6 +2,7 @@ package testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -62,27 +63,35 @@ public class TestAlert {
 		buttonSignIn.click();
 		
 		//Print the text seen in the alert message.
-		System.out.println(driver.switchTo().alert().getText());
+		Alert alert = driver.switchTo().alert();
+		System.out.println(alert.getText());
+		//System.out.println(driver.switchTo().alert().getText());
 		
 		//Click the OK button in the pop-up
-		driver.switchTo().alert().accept();
+		alert.accept();
+		//driver.switchTo().alert().accept();
 		System.out.println("OK button has been clicked.");
 		
-		//Navigate to this site for sample popup message.
-		driver.get("https://www.hdfc.com/");
+		//Navigate to this site for sample alert with explicit wait.
+		driver.get("https://mail.rediff.com/cgi-bin/login.cgi");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Click the Close button from the popup message.
-		WebElement closeButton = driver.findElement(By.xpath("//*[@id=\"HomepageModalVideo\"]/div/div/div[1]/button"));
-		closeButton.click();
-		System.out.println("Close button has been clicked.");
+		//Click the Sign-In button so that the JavaScript Alert will pop-put.
+		WebElement buttonSignIn1 = driver.findElement(By.xpath("//input[@name='proceed']"));
+		buttonSignIn1.click();
 		
-		//Navigate to this site for sample notifications.
-		driver.get("https://www.cleartrip.com/");
-		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		//Apply Explicit wait until alert is present.
 		
-		//Quits the WebDriver session.
-		driver.quit();
+		//Print the text seen in the alert message.
+		Alert alert1 = driver.switchTo().alert();
+		System.out.println(alert1.getText());
+		//System.out.println(driver.switchTo().alert().getText());
+		
+		//Click the OK button in the pop-up
+		alert1.accept();
+		//driver.switchTo().alert().accept();
+		System.out.println("OK button has been clicked.");
+		
 	}
 
 }
