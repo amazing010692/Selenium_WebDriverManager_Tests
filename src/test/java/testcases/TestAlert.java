@@ -57,7 +57,9 @@ public class TestAlert {
 		driver.get("https://mail.rediff.com/cgi-bin/login.cgi");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Click 
+		//Click the Sign-In button so that the JavaScript Alert will pop-put.
+		WebElement buttonSignIn = driver.findElement(By.xpath("//input[@name='proceed']"));
+		buttonSignIn.click();
 		
 		//Print the text seen in the alert message.
 		System.out.println(driver.switchTo().alert().getText());
