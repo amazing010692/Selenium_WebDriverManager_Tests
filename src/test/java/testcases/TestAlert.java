@@ -1,10 +1,8 @@
 package testcases;
 
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,17 +12,14 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestFindingElements {
+public class TestAlert {
 	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
-
+	
 	public static void main(String[] args) throws InterruptedException {
 		
 		if(browser.equals("chrome")) {
@@ -54,38 +49,38 @@ public class TestFindingElements {
 		
 		}
 		
-		driver.get("http://gmail.com");
+		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			
+		//Navigate to this site for sample alert.
+		driver.get("https://mail.rediff.com/cgi-bin/login.cgi");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//WebDriverWait wait = new WebDriverWait(driver, 20);
+		//Click 
 		
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(10))
-				.pollingEvery(Duration.ofSeconds(2))
-				.withMessage("User defined - Timed out after 30 seconds")
-				.ignoring(NoSuchElementException.class);
+		//Print the text seen in the alert message.
+		System.out.println(driver.switchTo().alert().getText());
 		
-		WebElement username = driver.findElement(By.id("identifierId"));
-		username.sendKeys("java@way2automation.com");
+		//Click the OK button in the pop-up
+		driver.switchTo().alert().accept();
+		System.out.println("OK button has been clicked.");
 		
-		//driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
-		WebElement nextButtonU = driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span"));
-		nextButtonU.click();
+		//Navigate to this site for sample popup message.
+		driver.get("https://www.hdfc.com/");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		WebElement password =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("password")));
-		//WebElement password = driver.findElement(By.name("password"));
-		password.sendKeys("TestPassword123");
+		//Click the Close button from the popup message.
+		WebElement closeButton = driver.findElement(By.xpath("//*[@id=\"HomepageModalVideo\"]/div/div/div[1]/button"));
+		closeButton.click();
+		System.out.println("Close button has been clicked.");
 		
-		WebElement nextButtonP = driver.findElement(By.xpath("//*[@id=\"passwordNext\"]/span/span"));
-		nextButtonP.click();
+		//Navigate to this site for sample notifications.
+		driver.get("https://www.cleartrip.com/");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		WebElement errorMessage = driver.findElement(By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/"
-				+ "div[1]/div/form/span/section/div/div/div[1]/div[2]/div[2]/span"));
-		System.out.println(errorMessage.getText());
-		
-		Thread.sleep(3000);
-		driver.close();
+		//Quits the WebDriver session.
+		driver.quit();
 	}
 
 }
