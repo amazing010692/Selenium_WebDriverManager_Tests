@@ -13,6 +13,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -81,9 +83,10 @@ public class TestAlert {
 		buttonSignIn1.click();
 		
 		//Apply Explicit wait until alert is present.
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		Alert alert1 = wait.until(ExpectedConditions.alertIsPresent());
 		
 		//Print the text seen in the alert message.
-		Alert alert1 = driver.switchTo().alert();
 		System.out.println(alert1.getText());
 		//System.out.println(driver.switchTo().alert().getText());
 		
