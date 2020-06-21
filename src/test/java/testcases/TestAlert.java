@@ -95,6 +95,8 @@ public class TestAlert {
 		//driver.switchTo().alert().accept();
 		System.out.println("OK button has been clicked.");
 		
+		//Quits WebDriver session.
+		driver.quit();
 	}
 
 }
