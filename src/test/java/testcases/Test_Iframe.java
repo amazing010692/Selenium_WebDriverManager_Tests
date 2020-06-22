@@ -82,6 +82,35 @@ public class Test_Iframe {
 			System.out.println(frame.getAttribute("id"));
 		}
 		
+		System.out.println("===========IFRAME ASSIGNMENT===========");
+		
+		//Navigate to this site for iframe assignment where no id  is present.
+		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		//Switch to frame by index
+		driver.switchTo().frame(0);
+		
+		//Click the "Try It" button.
+		WebElement buttonTryIt1 = driver.findElement(By.xpath("/html/body/button"));
+		buttonTryIt1.click();
+		System.out.println("Try It button has been successfully clicked.");
+		
+		//Switch the focus outside the iframe or to the main web page.
+		driver.switchTo().parentFrame();
+		System.out.println("Successfully switched to the parent frame.");
+		
+		//Store all elements with an <iframe> tag.
+		List<WebElement> frames1 = driver.findElements(By.tagName("iframe"));
+		
+		//Print the total number of frames.
+		System.out.println("The total number of frames are: " + frames1.size());
+		
+		//Print all the id names of the iframe present in a webpage.
+		System.out.println("***The list of iframe by ID are:***");
+		for(WebElement frame1 : frames1) {
+			System.out.println(frame1.getAttribute("id"));
+		}
 	}
 
 }
