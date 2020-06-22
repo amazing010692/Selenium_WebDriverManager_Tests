@@ -53,13 +53,17 @@ public class Test_IFrame {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			
-		//Navigate to this site for sample alert.
+		//Navigate to this site for sample IFrame.
 		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Click the "Try It" button so that the JavaScript Alert will pop-put.
+		//Switch to frame by id.
+		driver.switchTo().frame("iframeResult");
+		
+		//Click the "Try It" button.
 		WebElement buttonTryIt = driver.findElement(By.xpath("/html/body/button"));
 		buttonTryIt.click();
+		System.out.println("Try It button has been successfully clicked.");
 		
 		
 	}
