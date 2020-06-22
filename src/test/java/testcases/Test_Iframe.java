@@ -72,6 +72,12 @@ public class Test_Iframe {
 		//Print the total number of frames.
 		System.out.println("The total number of frames are: " + frames.size());
 		
+		//Print all the id names of the iframe present in a webpage.
+		for(WebElement frame : frames) {
+			System.out.println(frame.getAttribute("id"));
+		}
+		
+		//
 	}
 
 }
