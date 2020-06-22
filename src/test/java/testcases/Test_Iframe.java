@@ -58,14 +58,6 @@ public class Test_Iframe {
 		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Switch to frame by id.
-		driver.switchTo().frame("iframeResult");
-		
-		//Click the "Try It" button.
-		WebElement buttonTryIt = driver.findElement(By.xpath("/html/body/button"));
-		buttonTryIt.click();
-		System.out.println("Try It button has been successfully clicked.");
-		
 		//Store all elements with an <iframe> tag.
 		List<WebElement> frames = driver.findElements(By.tagName("iframe"));
 		
@@ -73,9 +65,18 @@ public class Test_Iframe {
 		System.out.println("The total number of frames are: " + frames.size());
 		
 		//Print all the id names of the iframe present in a webpage.
+		System.out.println("***The list of iframe by ID are:***");
 		for(WebElement frame : frames) {
 			System.out.println(frame.getAttribute("id"));
 		}
+		
+		//Switch to frame by id.
+		driver.switchTo().frame("iframeResult");
+		
+		//Click the "Try It" button.
+		WebElement buttonTryIt = driver.findElement(By.xpath("/html/body/button"));
+		buttonTryIt.click();
+		System.out.println("Try It button has been successfully clicked.");
 		
 		//
 	}
