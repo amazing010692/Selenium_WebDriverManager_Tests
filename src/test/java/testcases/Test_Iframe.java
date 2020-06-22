@@ -16,7 +16,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Test_IFrame {
+public class Test_Iframe {
 	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
@@ -66,7 +66,7 @@ public class Test_IFrame {
 		buttonTryIt.click();
 		System.out.println("Try It button has been successfully clicked.");
 		
-		//Store all elements with an <ifame> tag.
+		//Store all elements with an <iframe> tag.
 		List<WebElement> frames = driver.findElements(By.tagName("iframe"));
 		
 		//Print the total number of frames.
