@@ -70,7 +70,7 @@ public class Test_IFrame {
 		List<WebElement> frames = driver.findElements(By.tagName("iframe"));
 		
 		//Print the total number of frames.
-		
+		System.out.println("The total number of frames are: " + frames.size());
 		
 	}
 
