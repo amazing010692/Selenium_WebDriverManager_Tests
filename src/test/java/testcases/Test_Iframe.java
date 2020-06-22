@@ -88,7 +88,7 @@ public class Test_Iframe {
 		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Switch to frame by index
+		//Switch to frame by index.
 		driver.switchTo().frame(0);
 		
 		//Click the "Try It" button.
