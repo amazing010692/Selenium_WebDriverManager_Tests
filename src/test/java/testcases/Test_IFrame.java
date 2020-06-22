@@ -56,11 +56,11 @@ public class Test_IFrame {
 		//Navigate to this site for sample alert.
 		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
-		/*
-		//Click the Sign-In button so that the JavaScript Alert will pop-put.
-		WebElement buttonSignIn = driver.findElement(By.xpath("//input[@name='proceed']"));
-		buttonSignIn.click();
-		*/
+		
+		//Click the "Try It" button so that the JavaScript Alert will pop-put.
+		WebElement buttonTryIt = driver.findElement(By.xpath("/html/body/button"));
+		buttonTryIt.click();
+		
 		
 	}
 
