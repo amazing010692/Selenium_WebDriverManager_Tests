@@ -58,6 +58,18 @@ public class Test_Iframe {
 		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
+		//Switch to frame by id name.
+		driver.switchTo().frame("iframeResult");
+		
+		//Click the "Try It" button.
+		WebElement buttonTryIt = driver.findElement(By.xpath("/html/body/button"));
+		buttonTryIt.click();
+		System.out.println("Try It button has been successfully clicked.");
+		
+		//Switch the focus outside the iframe or to the main web page.
+		driver.switchTo().defaultContent();
+		System.out.println("Successfully switched to the main webpage and already outside the iframe.");
+		
 		//Store all elements with an <iframe> tag.
 		List<WebElement> frames = driver.findElements(By.tagName("iframe"));
 		
@@ -70,15 +82,6 @@ public class Test_Iframe {
 			System.out.println(frame.getAttribute("id"));
 		}
 		
-		//Switch to frame by id.
-		driver.switchTo().frame("iframeResult");
-		
-		//Click the "Try It" button.
-		WebElement buttonTryIt = driver.findElement(By.xpath("/html/body/button"));
-		buttonTryIt.click();
-		System.out.println("Try It button has been successfully clicked.");
-		
-		//
 	}
 
 }
