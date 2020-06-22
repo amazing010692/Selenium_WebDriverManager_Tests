@@ -111,6 +111,9 @@ public class Test_Iframe {
 		for(WebElement frame1 : frames1) {
 			System.out.println(frame1.getAttribute("id"));
 		}
+		
+		//Quits WebDriver session.
+		driver.quit();
 	}
 
 }
