@@ -1,5 +1,6 @@
 package testcases;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -64,6 +65,11 @@ public class Test_IFrame {
 		WebElement buttonTryIt = driver.findElement(By.xpath("/html/body/button"));
 		buttonTryIt.click();
 		System.out.println("Try It button has been successfully clicked.");
+		
+		//Store all elements with an <ifame> tag.
+		List<WebElement> frames = driver.findElements(By.tagName("iframe"));
+		
+		//Print the total number of frames.
 		
 		
 	}
