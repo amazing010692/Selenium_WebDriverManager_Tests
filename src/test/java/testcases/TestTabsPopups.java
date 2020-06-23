@@ -105,6 +105,11 @@ public class TestTabsPopups {
 		WebElement buttonKnowMore = driver.findElement(By.xpath("//a[@class='btn-default register-url']"));
 		Actions action = new Actions(driver);
 		action.keyDown(Keys.SHIFT).click(buttonKnowMore).keyUp(Keys.SHIFT).build().perform();
+		
+		//Click the Online Banking link and it will open in a new tab.
+		WebElement linkOnlineBanking = driver.findElement(By.xpath("//a[contains(text(),'Online Banking')]"));
+		String ctrlEnter = Keys.chord(Keys.CONTROL,Keys.ENTER);
+		linkOnlineBanking.sendKeys(ctrlEnter);
 	}
 
 }
