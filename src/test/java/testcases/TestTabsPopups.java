@@ -84,12 +84,8 @@ public class TestTabsPopups {
 		driver.get("https://www.hdfcbank.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Click the pop-up close button.
-		WebElement popupCloseButton = driver.findElement(By.xpath("//img[@class='popupCloseButton']"));
-		popupCloseButton.click();
-		
 		//Click the Login button.
-		WebElement buttonLogin = driver.findElement(By.xpath("//button[@class='btn btn-primary login-btn ng-scope']"));
+		WebElement buttonLogin = driver.findElement(By.xpath("//*[@id=\"custom-button\"]/button"));
 		buttonLogin.click();
 	}
 
