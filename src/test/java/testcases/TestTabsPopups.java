@@ -136,13 +136,19 @@ public class TestTabsPopups {
 		System.out.println(iterate1.next()); 	//1st window
 		System.out.println(iterate1.next()); 	//2nd window
 		String thirdWindow = iterate1.next();	//3rd window
+		
+		/*//While condition which is optional.
+		while(iterate1.hasNext()) {
+			iterate1.next()
+		}*/
+		
 		System.out.println(thirdWindow);
 		
 		//Switch the WebDriver focus to the newly opened tab.
 		driver.switchTo().window(thirdWindow);
 		
 		//Verify that the newly opened tab contains the expected title.
-		driver.getTitle().contains("Secure Internet Banking");	
+		System.out.println(driver.getTitle().contains("Secure Internet Banking"));
 
 	}
 
