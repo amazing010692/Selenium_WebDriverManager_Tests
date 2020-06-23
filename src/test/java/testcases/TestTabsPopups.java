@@ -62,7 +62,7 @@ public class TestTabsPopups {
 		driver.switchTo().frame("iframeResult");
 		
 		//Click the "Try It" button.
-		WebElement
+		
 	}
 
 }
