@@ -100,16 +100,19 @@ public class TestTabsPopups {
 		//Click the Login button.
 		WebElement buttonLogin = driver.findElement(By.xpath("//button[@class='btn btn-primary login-btn ng-scope']"));
 		buttonLogin.click();
+		System.out.println("Log In button has been successfully clicked.");
 		
 		//Click the "KNOW MORE" button and open it in a new window.
 		WebElement buttonKnowMore = driver.findElement(By.xpath("//a[@class='btn-default register-url']"));
 		Actions action = new Actions(driver);
 		action.keyDown(Keys.SHIFT).click(buttonKnowMore).keyUp(Keys.SHIFT).build().perform();
+		System.out.println("The KNOW MORE button has been successfully clicked and it open in a new window.");
 		
 		//Click the Online Banking link and it will open in a new tab.
 		WebElement linkOnlineBanking = driver.findElement(By.xpath("//a[contains(text(),'Online Banking')]"));
 		String ctrlEnter = Keys.chord(Keys.CONTROL,Keys.ENTER);
 		linkOnlineBanking.sendKeys(ctrlEnter);
+		System.out.println("THe link for Online Banking has been successfully open in a new tab.");
 	}
 
 }
