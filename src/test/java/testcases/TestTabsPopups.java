@@ -93,7 +93,7 @@ public class TestTabsPopups {
 		Set<String> windowIDs = driver.getWindowHandles();
 		Iterator<String> iterate1 = windowIDs.iterator();
 		
-		//Print the name of the first window.
+		//Print the name of the 1st window.
 		String firstWindow = iterate1.next();
 		System.out.println(firstWindow);
 		
@@ -108,7 +108,18 @@ public class TestTabsPopups {
 		action.keyDown(Keys.SHIFT).click(buttonKnowMore).keyUp(Keys.SHIFT).build().perform();
 		System.out.println("The KNOW MORE button has been successfully clicked and it open in a new window.");
 		
+		//Remove the Set and Iterator so that the stored variable can be overwritten with a new value.
+		System.out.println("-----Generating Window IDs from the 2nd window-----");
+		windowIDs = driver.getWindowHandles();
+		iterate1 = windowIDs.iterator();
+		
+		//Print the name of the 1st window and 2nd window.
+		System.out.println(iterate1.next()); 	//1st window
+		String secondWindow = iterate1.next();	//2nd window
+		System.out.println(secondWindow);
+		
 		//Switch the WebDriver focus to the newly opened window.
+		driver.switchTo().window(secondWindow);
 		
 		//Click the Online Banking link and it will open in a new tab.
 		WebElement linkOnlineBanking = driver.findElement(By.xpath("//a[contains(text(),'Online Banking')]"));
@@ -116,8 +127,22 @@ public class TestTabsPopups {
 		linkOnlineBanking.sendKeys(ctrlEnter);
 		System.out.println("The link for Online Banking has been successfully open in a new tab.");
 		
-
+		//Remove the Set and Iterator so that the stored variable can be overwritten with a new value.
+		System.out.println("-----Generating Window IDs from the 3rd window-----");
+		windowIDs = driver.getWindowHandles();
+		iterate1 = windowIDs.iterator();
 		
+		//Print the name of the 1st window, 2nd window, and 3rd window.
+		System.out.println(iterate1.next()); 	//1st window
+		System.out.println(iterate1.next()); 	//2nd window
+		String thirdWindow = iterate1.next();	//3rd window
+		System.out.println(thirdWindow);
+		
+		//Switch the WebDriver focus to the newly opened tab.
+		driver.switchTo().window(thirdWindow);
+		
+		//Verify that the newly opened tab contains the expected title.
+		driver.getTitle().contains("Secure Internet Banking");	
 
 	}
 
