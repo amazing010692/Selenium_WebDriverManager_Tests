@@ -57,7 +57,6 @@ public class TestTabsPopups {
 		driver.get("https://www.hdfc.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		
 		//Click the Close button.
 		WebElement closeButton = driver.findElement(By.xpath("//*[@id=\"HomepageModalVideo\"]/div/div/div[1]/button"));
 		closeButton.click();
@@ -81,6 +80,17 @@ public class TestTabsPopups {
 		driver.close();								//close the child window
 		driver.switchTo().window(parentID);			//switches back to parent window
 		
+		//Navigate to this site wherein if you click the child window, it will automatically open in a new tab.
+		driver.get("https://www.hdfcbank.com/");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		//Click the pop-up close button.
+		WebElement popupCloseButton = driver.findElement(By.xpath("//img[@class='popupCloseButton']"));
+		popupCloseButton.click();
+		
+		//Click the Login button.
+		WebElement buttonLogin = driver.findElement(By.xpath("//button[@class='btn btn-primary login-btn ng-scope']"));
+		buttonLogin.click();
 	}
 
 }
