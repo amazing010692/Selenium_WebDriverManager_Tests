@@ -88,12 +88,12 @@ public class TestTabsPopups {
 		driver.get("https://www.hdfcbank.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Call the Set and Iterator class to store window handles.
-		System.out.println("-----Generating window IDs from the 1st window.-----");
+		//Store in a Set and Iterator class to manage the window handles.
+		System.out.println("-----Generating Window IDs from the 1st window-----");
 		Set<String> windowIDs = driver.getWindowHandles();
 		Iterator<String> iterate1 = windowIDs.iterator();
 		
-		//Store the 1st window in a String variable.
+		//Print the name of the first window.
 		String firstWindow = iterate1.next();
 		System.out.println(firstWindow);
 		
@@ -102,30 +102,23 @@ public class TestTabsPopups {
 		buttonLogin.click();
 		System.out.println("Log In button has been successfully clicked.");
 		
-		//Remove the Set and Iterator class so that a new value will be replaced in the stored variable.
-		System.out.println("-----Generating window IDs from the 2nd window.-----");
-		windowIDs = driver.getWindowHandles();
-		iterate1 = windowIDs.iterator();
-		
-		//Store the 2nd window in a String variable.
-		System.out.println(iterate1.next()); 	//first window
-		String secondWindow = iterate1.next(); 	//second window
-		System.out.println(secondWindow);
-		
-		//Switch the WebDriver focus now to the 2nd window.
-		driver.switchTo().window(secondWindow);
-		
 		//Click the "KNOW MORE" button and open it in a new window.
 		WebElement buttonKnowMore = driver.findElement(By.xpath("//a[@class='btn-default register-url']"));
 		Actions action = new Actions(driver);
 		action.keyDown(Keys.SHIFT).click(buttonKnowMore).keyUp(Keys.SHIFT).build().perform();
 		System.out.println("The KNOW MORE button has been successfully clicked and it open in a new window.");
 		
+		//Switch the WebDriver focus to the newly opened window.
+		
 		//Click the Online Banking link and it will open in a new tab.
 		WebElement linkOnlineBanking = driver.findElement(By.xpath("//a[contains(text(),'Online Banking')]"));
 		String ctrlEnter = Keys.chord(Keys.CONTROL,Keys.ENTER);
 		linkOnlineBanking.sendKeys(ctrlEnter);
-		System.out.println("THe link for Online Banking has been successfully open in a new tab.");
+		System.out.println("The link for Online Banking has been successfully open in a new tab.");
+		
+
+		
+
 	}
 
 }
