@@ -55,8 +55,14 @@ public class TestTabsPopups {
 			
 		//Navigate to this site wherein if you click the child window, it will automatically open in a new tab.
 		driver.get("https://www.hdfc.com/");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		
+		//Click the Close button.
 		WebElement closeButton = driver.findElement(By.xpath("//*[@id=\"HomepageModalVideo\"]/div/div/div[1]/button"));
 		closeButton.click();
+		
+		//Click the Blogs link and it will open in a new tab.
 		WebElement linkBlogs = driver.findElement(By.xpath("(//a[@href='https://www.hdfc.com/blog'])[2]"));
 		linkBlogs.click();
 				
