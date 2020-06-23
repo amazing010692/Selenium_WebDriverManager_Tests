@@ -1,6 +1,5 @@
 package testcases;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -54,14 +53,27 @@ public class TestTabsPopups {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			
-		//Navigate to this site for sample IFrame.
-		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get");
-		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
-		
-		//Switch to frame by id name.
-		driver.switchTo().frame("iframeResult");
-		
-		//Click the "Try It" button.
+		//Navigate to this site wherein if you click the child window, it will automatically open in a new tab.
+		driver.get("https://www.hdfc.com/");
+		WebElement closeButton = driver.findElement(By.xpath("//*[@id=\"HomepageModalVideo\"]/div/div/div[1]/button"));
+		closeButton.click();
+		WebElement linkBlogs = driver.findElement(By.xpath("(//a[@href='https://www.hdfc.com/blog'])[2]"));
+		linkBlogs.click();
+				
+		//The console first prints the title of child window and then the title of the parent window.
+		java.util.Iterator<String> iterate = driver.getWindowHandles().iterator();
+		String parentID = iterate.next();			//first iterate.next() points to current parent window
+		String childID = iterate.next();			//second iterate.next() points to current child window
+				
+		driver.switchTo().window(childID);			//switches to child window
+		System.out.println(driver.getTitle());		//prints title of child window
+				
+		driver.switchTo().window(parentID);			//switches back to parent window
+		System.out.println(driver.getTitle());		//prints title of parent window
+				
+		driver.switchTo().window(childID);			//switches to child window
+		driver.close();								//close the child window
+		driver.switchTo().window(parentID);			//switches back to parent window
 		
 	}
 
