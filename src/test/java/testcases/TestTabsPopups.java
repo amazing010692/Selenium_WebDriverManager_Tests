@@ -1,5 +1,7 @@
 package testcases;
 
+import java.util.Iterator;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -80,9 +82,18 @@ public class TestTabsPopups {
 		driver.close();								//close the child window
 		driver.switchTo().window(parentID);			//switches back to parent window
 		
-		//Navigate to this site wherein if you click the child window, it will automatically open in a new tab.
+		//Navigate to this site for another approach in handling new windows and new tabs.
 		driver.get("https://www.hdfcbank.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		//Call the Set and Iterator class to store window handles.
+		System.out.println("-----Generating window IDs from the 1st window.-----");
+		Set<String> windowIDs = driver.getWindowHandles();
+		Iterator<String> iterate1 = windowIDs.iterator();
+		
+		//Store the 1st window in a String variable.
+		String firstWindow = iterate1.next();
+		System.out.println(firstWindow);
 		
 		//Click the Login button.
 		WebElement buttonLogin = driver.findElement(By.xpath("//*[@id=\"custom-button\"]/button"));
