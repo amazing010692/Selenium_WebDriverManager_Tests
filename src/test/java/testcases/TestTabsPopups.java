@@ -149,6 +149,9 @@ public class TestTabsPopups {
 		
 		//Verify that the newly opened tab contains the expected title.
 		System.out.println(driver.getTitle().contains("Secure Internet Banking"));
+		
+		//Quits WebDriver session.
+		driver.quit();
 
 	}
 
