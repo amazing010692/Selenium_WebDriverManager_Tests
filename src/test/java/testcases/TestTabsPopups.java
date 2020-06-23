@@ -5,12 +5,14 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -96,8 +98,13 @@ public class TestTabsPopups {
 		System.out.println(firstWindow);
 		
 		//Click the Login button.
-		WebElement buttonLogin = driver.findElement(By.xpath("//*[@id=\"custom-button\"]/button"));
+		WebElement buttonLogin = driver.findElement(By.xpath("//button[@class='btn btn-primary login-btn ng-scope']"));
 		buttonLogin.click();
+		
+		//Click the "KNOW MORE" button and open it in a new window.
+		WebElement buttonKnowMore = driver.findElement(By.xpath("//a[@class='btn-default register-url']"));
+		Actions action = new Actions(driver);
+		action.keyDown(Keys.SHIFT).click(buttonKnowMore).keyUp(Keys.SHIFT).build().perform();
 	}
 
 }
