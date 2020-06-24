@@ -55,7 +55,7 @@ public class TestJavascriptExecutor {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			
-		//Navigate to this site for sample JavaScript Executor
+		//Navigate to this site for sample JavaScript Executor.
 		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
@@ -65,22 +65,18 @@ public class TestJavascriptExecutor {
 		//Click the "Try It" button using Javascript executor
 		((JavascriptExecutor) driver).executeScript("myFunction()");
 		System.out.println("Try It button has been successfully clicked.");
+			
+		//Navigate to this site for sample JavaScript Executor using typecasting.
+		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Switch the focus outside the iframe or to the main web page.
-		driver.switchTo().defaultContent();
-		System.out.println("Successfully switched to the main webpage and already outside the iframe.");
+		//Switch to frame by id name.
+		driver.switchTo().frame("iframeResult");
 		
-		//Store all elements with an <iframe> tag.
-		List<WebElement> frames = driver.findElements(By.tagName("iframe"));
+		//Click the "Try It" button using Javascript executor with typecasting.
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("myFunction()");
 		
-		//Print the total number of frames.
-		System.out.println("The total number of frames are: " + frames.size());
-		
-		//Print all the id names of the iframe present in a webpage.
-		System.out.println("***The list of iframe by ID are:***");
-		for(WebElement frame : frames) {
-			System.out.println(frame.getAttribute("id"));
-		}
 		
 
 	}
