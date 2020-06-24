@@ -2,6 +2,7 @@ package testcases;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -25,8 +26,10 @@ public class TestScreenshotTimestamp {
 	
 	//Utility for capturing screenshot.
 	public static void captureScreenshot() throws IOException {
+		Date d = new Date();
+		String fileName = d.toString().replace(":", "_").replace(" ", "_") + ".jpg";
 		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshot, new File(".//screenshot//error.jpg"));
+		FileUtils.copyFile(screenshot, new File(".//screenshot//" + fileName));
 	}
 	
 	public static String browser = "chrome"; //excel sheet
