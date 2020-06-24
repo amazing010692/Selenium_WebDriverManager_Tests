@@ -81,6 +81,9 @@ public class TestJavascriptExecutor {
 		WebElement buttonSubmitForm = driver.findElement(By.xpath("//*[@id=\"mySubmit\"]"));
 		js.executeScript("arguments[0].style.border='3px solid red'", buttonSubmitForm);
 		System.out.println("Submit the Form button has been successfully highlighted.");
+		
+		//Quits the WebDriver session.
+		driver.quit();
 
 	}
 
