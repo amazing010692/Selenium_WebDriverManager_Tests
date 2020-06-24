@@ -1,6 +1,5 @@
 package testcases;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -78,9 +77,10 @@ public class TestJavascriptExecutor {
 		js.executeScript("myFunction()");
 		System.out.println("Try It button has been successfully clicked.");
 		
-		//
-		
-		
+		//Highlight the "Submit the Form" button with Javascript Executor.
+		WebElement buttonSubmitForm = driver.findElement(By.xpath("//*[@id=\"mySubmit\"]"));
+		js.executeScript("arguments[0].style.border='3 px solid red'", buttonSubmitForm);
+		System.out.println("Submit the Form button has been successfully highlighted.");
 
 	}
 
