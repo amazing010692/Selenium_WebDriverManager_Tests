@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -54,16 +55,15 @@ public class TestJavascriptExecutor {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			
-		//Navigate to this site for sample IFrame.
+		//Navigate to this site for sample JavaScript Executor
 		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
 		//Switch to frame by id name.
 		driver.switchTo().frame("iframeResult");
 		
-		//Click the "Try It" button.
-		WebElement buttonTryIt = driver.findElement(By.xpath("/html/body/button"));
-		buttonTryIt.click();
+		//Click the "Try It" button using Javascript executor
+		((JavascriptExecutor) driver).executeScript("myFunction()");
 		System.out.println("Try It button has been successfully clicked.");
 		
 		//Switch the focus outside the iframe or to the main web page.
