@@ -76,6 +76,9 @@ public class TestJavascriptExecutor {
 		//Click the "Try It" button using Javascript executor with typecasting.
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("myFunction()");
+		System.out.println("Try It button has been successfully clicked.");
+		
+		//
 		
 		
 
