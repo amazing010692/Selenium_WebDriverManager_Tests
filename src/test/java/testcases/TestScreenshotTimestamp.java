@@ -76,9 +76,9 @@ public class TestScreenshotTimestamp {
 		js.executeScript("arguments[0].style.border='3px solid red'", buttonSubmitForm);
 		System.out.println("Submit the Form button has been successfully highlighted.");
 		
-		//Capture screenshot.
+		//Capture screenshot and store in a current directory.
 		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshot, new File("C:\\Users\\hello\\Pictures\\screenshots\\screenshot.png"));
+		FileUtils.copyFile(screenshot, new File(".//screenshot//error.jpg"));
 		System.out.println("Screenshot is generated in the destination path.");
 		
 		//Quits the WebDriver session.
