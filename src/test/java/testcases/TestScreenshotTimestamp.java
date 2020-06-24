@@ -23,6 +23,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestScreenshotTimestamp {
 	
+	//Utility for capturing screenshot.
+	public static void captureScreenshot() throws IOException {
+		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(screenshot, new File(".//screenshot//error.jpg"));
+	}
+	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
 	
@@ -77,8 +83,7 @@ public class TestScreenshotTimestamp {
 		System.out.println("Submit the Form button has been successfully highlighted.");
 		
 		//Capture screenshot and store in a current directory.
-		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshot, new File(".//screenshot//error.jpg"));
+		captureScreenshot();
 		System.out.println("Screenshot is generated in the destination path.");
 		
 		//Quits the WebDriver session.
