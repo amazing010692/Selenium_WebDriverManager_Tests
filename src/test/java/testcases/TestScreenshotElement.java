@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -29,6 +31,24 @@ public class TestScreenshotElement {
 		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshot, new File(".//screenshot//" + fileName));
 	}
+	
+	//Utility to capture a particular element screenshot.
+	public static void drawRedBorder(By by) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].style.border='3px solid red'", driver.findElement(by));
+		System.out.println("Got the border");
+	    }
+	public static void captureElementScreenshot(By by) throws IOException {
+		drawRedBorder(by);
+		WebElement element = driver.findElement(by);
+		File screenshot = element.getScreenshotAs(OutputType.FILE);
+	 
+		Date d = new Date();
+		String fileName = d.toString().replace(":", "_").replace(" ", "_") + "_elem.jpg";
+		File screenshotLocation = new File(".//screenshots//" + fileName);
+		FileUtils.copyFile(screenshot, screenshotLocation);
+		System.out.println("Took the screenshot");
+	    }
 	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
@@ -71,6 +91,7 @@ public class TestScreenshotElement {
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
 		//Capture the particular element screenshot and store in a current directory.
+		captureElementScreenshot(By.xpath("//*[@id=\'hplogo\']"));
 		System.out.println("The particular element screenshot is generated in the destination path.");
 		
 		//Capture screenshot and store in a current directory.
