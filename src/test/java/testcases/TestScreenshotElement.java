@@ -6,8 +6,6 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -68,22 +66,12 @@ public class TestScreenshotElement {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			
-		//Navigate to this site for sample JavaScript Executor using typecasting.
-		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get");
+		//Navigate to this site for sample site to capture element screenshot.
+		driver.get("https://www.google.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Switch to frame by id name.
-		driver.switchTo().frame("iframeResult");
-		
-		//Click the "Try It" button using Javascript executor with typecasting.
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("myFunction()");
-		System.out.println("Try It button has been successfully clicked.");
-		
-		//Highlight the "Submit the Form" button with Javascript Executor.
-		WebElement buttonSubmitForm = driver.findElement(By.xpath("//*[@id=\"mySubmit\"]"));
-		js.executeScript("arguments[0].style.border='3px solid red'", buttonSubmitForm);
-		System.out.println("Submit the Form button has been successfully highlighted.");
+		//Capture the particular element screenshot and store in a current directory.
+		System.out.println("The particular element screenshot is generated in the destination path.");
 		
 		//Capture screenshot and store in a current directory.
 		captureScreenshot();
