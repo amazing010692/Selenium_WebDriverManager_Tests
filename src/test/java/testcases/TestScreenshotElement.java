@@ -30,13 +30,14 @@ public class TestScreenshotElement {
 		String fileName = d.toString().replace(":", "_").replace(" ", "_") + ".jpg";
 		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshot, new File(".//screenshot//" + fileName));
+		System.out.println("Captured the full page screenshot.");
 	}
 	
 	//Utility to capture a particular element screenshot.
 	public static void drawRedBorder(By by) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].style.border='3px solid red'", driver.findElement(by));
-		System.out.println("Got the border");
+		System.out.println("Successfully created a border around the specified element.");
 	    }
 	public static void captureElementScreenshot(By by) throws IOException {
 		drawRedBorder(by);
@@ -47,7 +48,7 @@ public class TestScreenshotElement {
 		String fileName = d.toString().replace(":", "_").replace(" ", "_") + "_elem.jpg";
 		File screenshotLocation = new File(".//screenshots//" + fileName);
 		FileUtils.copyFile(screenshot, screenshotLocation);
-		System.out.println("Took the screenshot");
+		System.out.println("Successfully captured a screenshot of the articular element.");
 	    }
 	
 	public static String browser = "chrome"; //excel sheet
