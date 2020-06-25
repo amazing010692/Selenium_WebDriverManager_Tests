@@ -97,6 +97,16 @@ public class TestScreenshotElement {
 		//Capture screenshot of the whole page.
 		captureScreenshot();
 		
+		//Navigate to this site for another sample site to capture element screenshot.
+		driver.get("http://way2automation.com/index.html");
+		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		//Capture the particular element screenshot and store in a current directory.
+		captureElementScreenshot(By.xpath("//img[@class='header-logo__img']"));
+		
+		//Capture screenshot of the whole page.
+		captureScreenshot();
+		
 		//Quits the WebDriver session.
 		driver.quit();
 
