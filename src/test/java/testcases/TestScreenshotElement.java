@@ -30,7 +30,7 @@ public class TestScreenshotElement {
 		String fileName = d.toString().replace(":", "_").replace(" ", "_") + ".jpg";
 		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshot, new File(".//screenshot//" + fileName));
-		System.out.println("Captured the full page screenshot.");
+		System.out.println("Successfully captured a full page screenshot.");
 	}
 	
 	//Utility to capture a particular element screenshot.
@@ -48,7 +48,7 @@ public class TestScreenshotElement {
 		String fileName = d.toString().replace(":", "_").replace(" ", "_") + "_elem.jpg";
 		File screenshotLocation = new File(".//screenshots//" + fileName);
 		FileUtils.copyFile(screenshot, screenshotLocation);
-		System.out.println("Successfully captured a screenshot of the articular element.");
+		System.out.println("Successfully captured a screenshot of the particular element.");
 	    }
 	
 	public static String browser = "chrome"; //excel sheet
