@@ -92,7 +92,9 @@ public class TestScreenshotElement {
 		
 		//Capture the particular element screenshot and store in a current directory.
 		captureElementScreenshot(By.xpath("//*[@id=\'hplogo\']"));
-		System.out.println("The particular element screenshot is generated in the destination path.");
+		
+		//Capture screenshot of the whole page.
+		captureScreenshot();
 		
 		//Quits the WebDriver session.
 		driver.quit();
