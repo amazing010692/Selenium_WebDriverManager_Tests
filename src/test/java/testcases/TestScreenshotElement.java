@@ -107,7 +107,6 @@ public class TestScreenshotElement {
 		//Capture the particular element screenshot and store in a current directory.
 		captureElementScreenshot(By.xpath("//img[@class='header-logo__img']"));
 		
-	
 		//Quits the WebDriver session.
 		driver.quit();
 
