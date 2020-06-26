@@ -111,7 +111,7 @@ public class TestScreenshotFullScroll_AShot {
 		captureScreenshot();
 		
 		//Capture the particular element screenshot and store in a current directory.
-		captureElementScreenshot(By.xpath("//img[@class='header-logo-dark']"));
+		captureElementScreenshot(By.xpath("//div[@class='header-inner flex-row container logo-left medium-logo-center']"));
 				
 		//Navigate to this site for another sample site to capture element screenshot.
 		driver.get("https://www.cebupacificair.com/");
