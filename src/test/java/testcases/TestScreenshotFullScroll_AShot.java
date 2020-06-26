@@ -22,7 +22,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestFullScrollScreesnhot_AShot {
+public class TestScreenshotFullScroll_AShot {
 	
 	//Utility for capturing screenshot.
 	public static void captureFullScrollScreenshot() throws IOException {
