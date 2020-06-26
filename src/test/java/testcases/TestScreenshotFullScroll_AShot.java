@@ -101,7 +101,7 @@ public class TestScreenshotFullScroll_AShot {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			
 		//Navigate to this site for sample site to capture element screenshot.
-		driver.get("https://www.google.com/");
+		driver.get("https://www.cheqsystems.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
 		//Capture a full scrollable screenshot of the whole page.
@@ -111,7 +111,7 @@ public class TestScreenshotFullScroll_AShot {
 		captureScreenshot();
 		
 		//Capture the particular element screenshot and store in a current directory.
-		captureElementScreenshot(By.xpath("//*[@id=\'hplogo\']"));
+		captureElementScreenshot(By.xpath("//img[@class='header-logo-dark']"));
 				
 		//Navigate to this site for another sample site to capture element screenshot.
 		driver.get("http://way2automation.com/index.html");
