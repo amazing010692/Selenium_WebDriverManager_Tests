@@ -24,13 +24,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestScreenshotFullScroll_AShot {
 	
-	//Utility for capturing screenshot.
+	//Utility for capturing scrollable full page screenshot.
 	public static void captureFullScrollScreenshot() throws IOException {
 		Date d = new Date();
-		String fileName = d.toString().replace(":", "_").replace(" ", "_") + ".jpg";
-		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshot, new File(".//screenshot//" + fileName));
-		System.out.println("Successfully captured a full page screenshot.");
+		String fileName = d.toString().replace(":", "_").replace(" ", "_") + "_full.jpg";
+		File ssScrollFull = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(ssScrollFull, new File(".//screenshot//" + fileName));
+		System.out.println("Successfully captured a full scrollable screenshot.");
 	}
 	
 	//Utility for capturing screenshot.
@@ -51,12 +51,11 @@ public class TestScreenshotFullScroll_AShot {
 	public static void captureElementScreenshot(By by) throws IOException {
 		drawRedBorder(by);
 		WebElement element = driver.findElement(by);
-		File screenshot = element.getScreenshotAs(OutputType.FILE);
-	 
+		File screenshot_ele = element.getScreenshotAs(OutputType.FILE);
 		Date d = new Date();
 		String fileName = d.toString().replace(":", "_").replace(" ", "_") + "_elem.jpg";
 		File screenshotLocation = new File(".//screenshots//" + fileName);
-		FileUtils.copyFile(screenshot, screenshotLocation);
+		FileUtils.copyFile(screenshot_ele, screenshotLocation);
 		System.out.println("Successfully captured a screenshot of the particular element.");
 	    }
 	
