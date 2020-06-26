@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import javax.imageio.ImageIO;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -21,15 +23,18 @@ import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 public class TestScreenshotFullScroll_AShot {
 	
 	//Utility for capturing scrollable full page screenshot.
 	public static void captureFullScrollScreenshot() throws IOException {
 		Date d = new Date();
-		String fileName = d.toString().replace(":", "_").replace(" ", "_") + "_full.jpg";
-		File ssScrollFull = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(ssScrollFull, new File(".//screenshot//" + fileName));
+		String fileName = d.toString().replace(":", "_").replace(" ", "_") + "_full.png";
+		Screenshot fpScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
+		ImageIO.write(fpScreenshot.getImage(),"PNG", new File(".//screenshot//" + fileName));
 		System.out.println("Successfully captured a full scrollable screenshot.");
 	}
 	
