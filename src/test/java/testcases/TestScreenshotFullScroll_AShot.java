@@ -99,6 +99,9 @@ public class TestScreenshotFullScroll_AShot {
 		driver.get("https://www.google.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
+		//Capture a full scrollable screenshot of the whole page.
+		captureFullScrollScreenshot();
+		
 		//Capture screenshot of the whole page.
 		captureScreenshot();
 		
@@ -108,6 +111,10 @@ public class TestScreenshotFullScroll_AShot {
 		//Navigate to this site for another sample site to capture element screenshot.
 		driver.get("http://way2automation.com/index.html");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		
+		//Capture a full scrollable screenshot of the whole page.
+		captureFullScrollScreenshot();
 		
 		//Capture screenshot of the whole page.
 		captureScreenshot();
