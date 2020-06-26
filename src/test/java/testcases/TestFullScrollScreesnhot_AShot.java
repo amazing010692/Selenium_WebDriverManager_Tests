@@ -25,6 +25,15 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class TestFullScrollScreesnhot_AShot {
 	
 	//Utility for capturing screenshot.
+	public static void captureFullScrollScreenshot() throws IOException {
+		Date d = new Date();
+		String fileName = d.toString().replace(":", "_").replace(" ", "_") + ".jpg";
+		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(screenshot, new File(".//screenshot//" + fileName));
+		System.out.println("Successfully captured a full page screenshot.");
+	}
+	
+	//Utility for capturing screenshot.
 	public static void captureScreenshot() throws IOException {
 		Date d = new Date();
 		String fileName = d.toString().replace(":", "_").replace(" ", "_") + ".jpg";
