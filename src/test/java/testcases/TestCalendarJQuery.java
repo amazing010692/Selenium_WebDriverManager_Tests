@@ -77,6 +77,9 @@ public class TestCalendarJQuery {
 	
 	public static void getCurrentDateMonthAndYear() {
 		Calendar cal = Calendar.getInstance();
+		currentDay = cal.get(Calendar.DAY_OF_MONTH);
+		currentMonth = cal.get(Calendar.MONTH) + 1;
+		currentYear = cal.get(Calendar.YEAR);
 	}
 
 }
