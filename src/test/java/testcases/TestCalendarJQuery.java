@@ -88,6 +88,8 @@ public class TestCalendarJQuery {
 	public static void getTargetDateMonthAndYear(String dateString) {
 		int firstIndex = dateString.indexOf("/");
 		int lastIndex = dateString.lastIndexOf("/");
+		String day = dateString.substring(0, firstIndex);
+		targetDay = Integer.parseInt(day);
 		
 	}
 
