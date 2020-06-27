@@ -80,6 +80,11 @@ public class TestCalendarJQuery {
 		//Get target date.
 		getTargetDateMonthAndYear(dateToSet);
 		System.out.println(targetDay + "  " + targetMonth + "  " + targetYear);
+		
+		//Get Jump Month.
+		CalculateHowManyMonthsToJump();
+		System.out.println(jumpMonthsBy);
+		System.out.println(increment);
 	}
 	
 	public static void getCurrentDateMonthAndYear() {
