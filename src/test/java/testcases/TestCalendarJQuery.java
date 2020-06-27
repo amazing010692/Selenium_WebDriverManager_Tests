@@ -73,9 +73,13 @@ public class TestCalendarJQuery {
 		//Preferred date to be set.
 		String dateToSet = "01/08/2020";
 		
-		//Get current date
+		//Get current date.
 		getCurrentDateMonthAndYear();
 		System.out.println(currentDay + "  " + currentMonth + "  " + currentYear);
+		
+		//Get target date.
+		getTargetDateMonthAndYear(dateToSet);
+		System.out.println(targetDay + "  " + targetMonth + "  " + targetYear);
 	}
 	
 	public static void getCurrentDateMonthAndYear() {
@@ -95,6 +99,8 @@ public class TestCalendarJQuery {
 		String month = dateString.substring(firstIndex + 1, lastIndex);
 		targetMonth = Integer.parseInt(month);
 		
+		String year = dateString.substring(lastIndex + 1, dateString.length());
+		targetYear = Integer.parseInt(year);
 	}
 
 }
