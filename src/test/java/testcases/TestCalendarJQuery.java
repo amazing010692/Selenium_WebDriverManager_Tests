@@ -105,7 +105,10 @@ public class TestCalendarJQuery {
 	
 	public static void CalculateHowManyMonthsToJump() {
 		if((targetMonth - currentMonth) > 0 ) {
-			
+			jumpMonthsBy = (targetMonth - currentMonth);
+		} else {
+			jumpMonthsBy = (currentMonth - targetMonth);
+			increment = false;
 		}
 	}
 
