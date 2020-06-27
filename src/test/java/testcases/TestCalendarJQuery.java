@@ -102,6 +102,12 @@ public class TestCalendarJQuery {
 		String year = dateString.substring(lastIndex + 1, dateString.length());
 		targetYear = Integer.parseInt(year);
 	}
+	
+	public static void CalculateHowManyMonthsToJump() {
+		if((targetMonth - currentMonth) > 0 ) {
+			
+		}
+	}
 
 }
 
