@@ -84,6 +84,10 @@ public class TestCalendarJQuery {
 		currentMonth = cal.get(Calendar.MONTH) + 1;
 		currentYear = cal.get(Calendar.YEAR);
 	}
+	
+	public static void getTargetDateMonthAndYear(String dateString) {
+		
+	}
 
 }
 
