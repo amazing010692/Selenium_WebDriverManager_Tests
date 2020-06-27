@@ -16,6 +16,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestCalendarJQuery {
 	
+	//Store initial values in global variables.
+	static int targetDay = 0,
+				targetMonth = 0,
+				targetYear = 0;
+				
+	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
 
