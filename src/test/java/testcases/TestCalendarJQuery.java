@@ -18,9 +18,12 @@ public class TestCalendarJQuery {
 	
 	//Store initial values in global variables.
 	static int targetDay = 0,
-				targetMonth = 0,
-				targetYear = 0;
+			targetMonth = 0,
+			targetYear = 0;
 				
+	static int currentDay = 0,
+			currentMonth = 0,
+			currentYear = 0;
 	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
