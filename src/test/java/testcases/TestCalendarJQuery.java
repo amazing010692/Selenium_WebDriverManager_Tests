@@ -1,6 +1,7 @@
 package testcases;
 
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -20,10 +21,14 @@ public class TestCalendarJQuery {
 	static int targetDay = 0,
 			targetMonth = 0,
 			targetYear = 0;
-				
+	
 	static int currentDay = 0,
 			currentMonth = 0,
 			currentYear = 0;
+	
+	static int jumpMonthsBy = 0;
+	
+	static boolean increment = true;
 	
 	public static String browser = "chrome"; //excel sheet
 	public static WebDriver driver;
@@ -65,8 +70,13 @@ public class TestCalendarJQuery {
 		driver.get("https://www.goibibo.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
 		
-		//Cl
+		//Preferred date to be set.
+		String dateToSet = "01/08/2020";
 		
+	}
+	
+	public static void getCurrentDateMonthAndYear() {
+		Calendar cal = Calendar.getInstance();
 	}
 
 }
