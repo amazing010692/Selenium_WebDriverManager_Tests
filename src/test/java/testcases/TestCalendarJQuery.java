@@ -186,6 +186,16 @@ public class TestCalendarJQuery {
 		//Click the Date field.
 		WebElement fieldDate = driver.findElement(By.xpath("//input[@id='datepicker']"));
 		fieldDate.click();
+		
+		//Loop condition in clicking the increment and decrement buttons.
+		for(int i = 0; i < jumpMonthsBy; i ++) {
+			if(increment) {
+				driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[2]/span")).click();
+			} else {
+				driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[1]/span")).click();
+			}
+			Thread.sleep(1000);
+		}
 
 	}
 	
