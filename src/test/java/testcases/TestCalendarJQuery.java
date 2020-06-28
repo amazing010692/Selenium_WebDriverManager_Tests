@@ -137,6 +137,10 @@ public class TestCalendarJQuery {
 		WebElement buttonSubmit = driver.findElement(By.xpath("(//input[@value='Submit'])[2]"));
 		buttonSubmit.click();
 		
+		//Click the Sign-In button.
+		WebElement buttonSignIn = driver.findElement(By.xpath("//*[@id=\"load_form\"]/div/div[1]/p/a"));
+		buttonSignIn.click();
+		
 		//Mouse over to Widget Menu and call the Actions class.
 		Actions action = new Actions(driver);
 		WebElement menuWidget = driver.findElement(By.xpath("//a[contains(text(),'Widget')]"));
