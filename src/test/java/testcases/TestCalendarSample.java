@@ -24,7 +24,7 @@ public class TestCalendarSample {
 	static int futureDay = 0, futureMonth = 0, futureYear = 0;
 	static int moveToMonth = 0, moveToYear = 0;
 	static boolean incrementMonth = true, incrementYear = true;
-	static int monthIncreaseDecreseBy = 0;
+	static int monthIncreaseDecreaseBy = 0;
 	static WebDriver driver;
  
 	public static void main(String[] args) throws InterruptedException, IOException {
@@ -42,7 +42,7 @@ public class TestCalendarSample {
 		System.out.println(" No. of Month : " + moveToMonth);
 		System.out.println(incrementYear);
 		System.out.println(" No. of Year : " + moveToYear);
-		System.out.println(monthIncreaseDecreseBy);
+		System.out.println(monthIncreaseDecreaseBy);
  
 		
 		  if (futureMonth != 0 && futureDay != 0 && futureYear != 0) {
@@ -128,12 +128,12 @@ public class TestCalendarSample {
 		
 		int monthCheck = (moveToYear * 12) - moveToMonth;
 		if (incrementYear) {
-			monthIncreaseDecreseBy = (moveToYear * 12) + moveToMonth;
+			monthIncreaseDecreaseBy = (moveToYear * 12) + moveToMonth;
 		} else {
 			if (monthCheck > 0) {
-				monthIncreaseDecreseBy = monthCheck;
+				monthIncreaseDecreaseBy = monthCheck;
 			}else {
-				monthIncreaseDecreseBy = Math.abs(monthCheck);
+				monthIncreaseDecreaseBy = Math.abs(monthCheck);
 			}
 				
 		}
@@ -227,7 +227,7 @@ public class TestCalendarSample {
 		wait.until(ExpectedConditions
 				.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[1]")));
 		//increment and decrement of month
-		for (int i = 0; i < monthIncreaseDecreseBy; i++) {
+		for (int i = 0; i < monthIncreaseDecreaseBy; i++) {
 			if (incrementYear) {
 				calendarOpen.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[2]")).click();
 				//System.out.println("Increment");
