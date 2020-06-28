@@ -65,7 +65,7 @@ public class TestCalendarJQuery {
 
 	public static void main(String[] args) throws InterruptedException, ParseException {
 		
-		/*if(browser.equals("chrome")) {
+		if(browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			
@@ -97,9 +97,9 @@ public class TestCalendarJQuery {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		//Navigate to this site for sample handling of jquery calendar.
-		driver.get("https://www.goibibo.com/");
+		driver.get("http://www.qa.way2automation.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
-		*/
+		
 		//Preferred date to be set.
 		String dateToSet = "01/08/2020";
 		
