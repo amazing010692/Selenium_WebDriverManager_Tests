@@ -184,12 +184,12 @@ public class TestCalendarJQuery {
 		optionDatepicker.click();
 		
 		//Switch to the iframe present in the page.
-		WebElement framePresent = driver.findElement(By.xpath("//*[@id=\"example-1-tab-1\"]/div/iframe"));
+		WebElement framePresent = driver.findElement(By.xpath("//div[@id='example-1-tab-1']//iframe[@class='demo-frame']"));
 		driver.switchTo().frame(framePresent);
 		
 		//Click the Date field.
-		WebElement fieldDate = driver.findElement(By.xpath("//div[@id='example-1-tab-1']//iframe[@class='demo-frame']"));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='example-1-tab-1']//iframe[@class='demo-frame']")));
+		WebElement fieldDate = driver.findElement(By.xpath("//input[@id='datepicker']"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='datepicker']")));
 		fieldDate.click();
 		
 		//Loop condition in clicking the increment and decrement buttons.
