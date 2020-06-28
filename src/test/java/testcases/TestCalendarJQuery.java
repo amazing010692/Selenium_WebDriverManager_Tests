@@ -124,6 +124,10 @@ public class TestCalendarJQuery {
 		WebElement fieldCity = driver.findElement(By.xpath("//input[@name='city']"));
 		fieldCity.sendKeys("Tokyo");
 		
+		//Fill-out the Username field.
+		WebElement fieldUsername = driver.findElement(By.xpath("//input[@name='username']"));
+		fieldUsername.sendKeys("michiko_daimon");
+		
 		//Preferred date to be set.
 		String dateToSet = "01/08/2020";
 		
