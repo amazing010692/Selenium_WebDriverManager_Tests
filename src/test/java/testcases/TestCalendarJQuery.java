@@ -99,7 +99,7 @@ public class TestCalendarJQuery {
 		}
 		
 		//Preferred date to be set.
-		String dateToSet = "28/03/2022";
+		String dateToSet = "28/03/2020";
 		
 		//Get current date.
 		getCurrentDateMonthAndYear();
