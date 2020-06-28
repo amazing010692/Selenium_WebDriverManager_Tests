@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  
 import io.github.bonigarcia.wdm.WebDriverManager;
  
-public class TestCalenderForMonth {
+public class TestCalendarSample {
  
 	static int currentDay = 0, currentMonth = 0, currentYear = 0;
 	static int futureDay = 0, futureMonth = 0, futureYear = 0;
