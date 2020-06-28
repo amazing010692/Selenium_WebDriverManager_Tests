@@ -14,6 +14,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.Select;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -113,6 +114,11 @@ public class TestCalendarJQuery {
 		//Fill-out the Email field.
 		WebElement fieldEmail = driver.findElement(By.xpath("//input[@name='email']"));
 		fieldEmail.sendKeys("michikodaimon@tv-asahi.co.jp");
+		
+		//Select the country from Country dropdown list.
+		WebElement listCountry = driver.findElement(By.xpath("//*[@id=\"load_form\"]/fieldset[4]/select"));
+		Select select = new Select(listCountry);
+		select.selectByValue("Japan");
 		
 		//Preferred date to be set.
 		String dateToSet = "01/08/2020";
