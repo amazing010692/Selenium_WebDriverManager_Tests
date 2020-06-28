@@ -99,7 +99,7 @@ public class TestCalendarJQuery {
 		}
 		
 		//Preferred date to be set.
-		String dateToSet = "01/08/2020";
+		String dateToSet = "28/03/2020";
 		
 		//Get current date.
 		getCurrentDateMonthAndYear();
@@ -205,7 +205,11 @@ public class TestCalendarJQuery {
 		//Clicking the target day.
 		WebElement selectTargetDay = driver.findElement(By.linkText(Integer.toString(targetDay)));
 		selectTargetDay.click();
-
+		
+		//Clear the Date field.
+		fieldDate.clear();
+		fieldDate.sendKeys(dateToSet);
+		System.out.println("Successfully enetered the target date.");
 	}
 	
 	
