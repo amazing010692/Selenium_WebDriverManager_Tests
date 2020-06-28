@@ -201,6 +201,10 @@ public class TestCalendarJQuery {
 			}
 			Thread.sleep(1000);
 		}
+		
+		//Clicking the target day.
+		WebElement selectTargetDay = driver.findElement(By.linkText(Integer.toString(targetDay)));
+		selectTargetDay.click();
 
 	}
 	
