@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -135,6 +136,11 @@ public class TestCalendarJQuery {
 		//Click the Submit button.
 		WebElement buttonSubmit = driver.findElement(By.xpath("(//input[@value='Submit'])[2]"));
 		buttonSubmit.click();
+		
+		//Mouse over to Widget Menu and call the Actions class.
+		Actions action = new Actions(driver);
+		WebElement menuWidget = driver.findElement(By.xpath("//a[contains(text(),'Widget')]"));
+		action.moveToElement(menuWidget).perform();
 		
 		//Preferred date to be set.
 		String dateToSet = "01/08/2020";
