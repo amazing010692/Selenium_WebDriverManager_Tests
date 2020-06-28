@@ -138,8 +138,16 @@ public class TestCalendarJQuery {
 		buttonSubmit.click();
 		
 		//Click the Sign-In button.
-		WebElement buttonSignIn = driver.findElement(By.xpath("//*[@id=\"load_form\"]/div/div[1]/p/a"));
+		WebElement buttonSignIn = driver.findElement(By.xpath("//a[@class='fancybox' and @href='#login']"));
 		buttonSignIn.click();
+		
+		//In the Login form, fill-out the Username field.
+		WebElement fieldUsernameLogin = driver.findElement(By.xpath("(//input[@name='username'])[2]"));
+		fieldUsernameLogin.sendKeys("michiko_daimon");
+		
+		//In the Login form, fill-out the Username field.
+		WebElement fieldPasswordLogin = driver.findElement(By.xpath("(//input[@name='username'])[2]"));
+		fieldPasswordLogin.sendKeys("michiko_daimon");
 		
 		//Mouse over to Widget Menu and call the Actions class.
 		Actions action = new Actions(driver);
