@@ -132,6 +132,10 @@ public class TestCalendarJQuery {
 		WebElement fieldPassword = driver.findElement(By.xpath("(//input[@name='password'])[2]"));
 		fieldPassword.sendKeys("DoctorX0801");
 		
+		//Click the Submit button.
+		WebElement buttonSubmit = driver.findElement(By.xpath("(//input[@value='Submit'])[2]"));
+		buttonSubmit.click();
+		
 		//Preferred date to be set.
 		String dateToSet = "01/08/2020";
 		
