@@ -15,7 +15,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -99,6 +101,7 @@ public class TestCalendarJQuery {
 		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		
 		//Navigate to this site for sample handling of jquery calendar.
 		driver.get("http://www.qa.way2automation.com/");
@@ -154,8 +157,10 @@ public class TestCalendarJQuery {
 		buttonSubmitLogin.click();
 		
 		//Mouse over to Widget Menu and call the Actions class.
+		driver.navigate().refresh();
 		Actions action = new Actions(driver);
-		WebElement menuWidget = driver.findElement(By.xpath("//a[contains(text(),'Widget')]"));
+		WebElement menuWidget = driver.findElement(By.xpath("//*[@id=\"toggleNav\"]/li[3]/a"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"toggleNav\"]/li[3]/a")));
 		action.moveToElement(menuWidget).perform();
 		
 		//Click the Datepicker option.
