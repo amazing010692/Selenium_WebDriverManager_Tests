@@ -29,7 +29,7 @@ public class TestCalendarSample {
  
 	public static void main(String[] args) throws InterruptedException, IOException {
  
-		String futureDate = "28/03/2017";
+		String futureDate = "28/03/2019";
  
 		captureCurrentDate();
 		System.out.println(currentDay + " " + currentMonth + " " + currentYear);
@@ -47,18 +47,18 @@ public class TestCalendarSample {
 		
 		  if (futureMonth != 0 && futureDay != 0 && futureYear != 0) {
 		  
-		  browserCalenderClick(); }
+		  browsercalendarClick(); }
 		 
  
 	}
  
 	public static void captureCurrentDate() {
  
-		Calendar calender = Calendar.getInstance();
+		Calendar calendar = Calendar.getInstance();
  
-		currentDay = calender.get(Calendar.DAY_OF_MONTH);
-		currentMonth = calender.get(Calendar.MONTH) + 1;
-		currentYear = calender.get(Calendar.YEAR);
+		currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+		currentMonth = calendar.get(Calendar.MONTH) + 1;
+		currentYear = calendar.get(Calendar.YEAR);
  
 	}
  
@@ -139,7 +139,7 @@ public class TestCalendarSample {
 		}
 	}
  
-	public static void browserCalenderClick() throws InterruptedException, IOException {
+	public static void browsercalendarClick() throws InterruptedException, IOException {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		//Pre-conditions | Maximize the browser and apply implicit waits.
@@ -220,8 +220,8 @@ public class TestCalendarSample {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='datepicker']")));
 		fieldDate.click();
  
-		//Calender open and date search
-		WebElement calenderOpen = driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]"));
+		//calendar open and date search
+		WebElement calendarOpen = driver.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]"));
 		wait.until(ExpectedConditions
 				.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[2]")));
 		wait.until(ExpectedConditions
@@ -229,10 +229,10 @@ public class TestCalendarSample {
 		//increment and decrement of month
 		for (int i = 0; i < monthIncreaseDecreseBy; i++) {
 			if (incrementYear) {
-				calenderOpen.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[2]")).click();
+				calendarOpen.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[2]")).click();
 				//System.out.println("Increment");
 			} else {
-				calenderOpen.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[1]")).click();
+				calendarOpen.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div/a[1]")).click();
 				//System.out.println("Decrement");
 			}
 //			Thread.sleep(500);
