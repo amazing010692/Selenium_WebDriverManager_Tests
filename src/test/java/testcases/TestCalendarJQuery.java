@@ -4,7 +4,9 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -99,6 +101,14 @@ public class TestCalendarJQuery {
 		//Navigate to this site for sample handling of jquery calendar.
 		driver.get("http://www.qa.way2automation.com/");
 		System.out.println("TITLE: " + driver.getTitle() + " | URL: " + driver.getCurrentUrl());
+		
+		//Fill-out the Name field.
+		WebElement fieldName = driver.findElement(By.xpath("//input[@name='name']"));
+		fieldName.sendKeys("Michiko Daimon");
+		
+		//Fill-out the Phone field.
+		WebElement fieldPhone = driver.findElement(By.xpath("//input[@name='phone']"));
+		fieldPhone.sendKeys("+81 3-6406-1111");
 		
 		//Preferred date to be set.
 		String dateToSet = "01/08/2020";
