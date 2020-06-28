@@ -158,6 +158,10 @@ public class TestCalendarJQuery {
 		WebElement menuWidget = driver.findElement(By.xpath("//a[contains(text(),'Widget')]"));
 		action.moveToElement(menuWidget).perform();
 		
+		//Click the Datepicker option.
+		WebElement optionDatepicker = driver.findElement(By.xpath("//a[contains(text(),'Datepicker')]"));
+		optionDatepicker.click();
+		
 		//Preferred date to be set.
 		String dateToSet = "01/08/2020";
 		
