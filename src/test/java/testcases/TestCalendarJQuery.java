@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -99,7 +100,7 @@ public class TestCalendarJQuery {
 		}
 		
 		//Preferred date to be set.
-		String dateToSet = "28/03/2020";
+		String dateToSet = "28/03/2022";
 		
 		//Get current date.
 		getCurrentDateMonthAndYear();
@@ -206,10 +207,11 @@ public class TestCalendarJQuery {
 		WebElement selectTargetDay = driver.findElement(By.linkText(Integer.toString(targetDay)));
 		selectTargetDay.click();
 		
-		//Clear the Date field.
+		//Clear the Date field and enter the desired date.
 		fieldDate.clear();
 		fieldDate.sendKeys(dateToSet);
-		System.out.println("Successfully enetered the target date.");
+		fieldDate.sendKeys(Keys.ENTER);
+		System.out.println("Successfully entered the target date.");
 	}
 	
 	
