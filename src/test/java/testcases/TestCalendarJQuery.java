@@ -98,6 +98,22 @@ public class TestCalendarJQuery {
 		
 		}
 		
+		//Preferred date to be set.
+		String dateToSet = "01/08/2020";
+		
+		//Get current date.
+		getCurrentDateMonthAndYear();
+		System.out.println(currentDay + "  " + currentMonth + "  " + currentYear);
+		
+		//Get target date.
+		getTargetDateMonthAndYear(dateToSet);
+		System.out.println(targetDay + "  " + targetMonth + "  " + targetYear);
+		
+		//Get Jump Month.
+		CalculateHowManyMonthsToJump();
+		System.out.println(jumpMonthsBy);
+		System.out.println(increment);
+		
 		//Pre-conditions | Maximize the browser and apply implicit waits.
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -167,21 +183,10 @@ public class TestCalendarJQuery {
 		WebElement optionDatepicker = driver.findElement(By.xpath("//a[contains(text(),'Datepicker')]"));
 		optionDatepicker.click();
 		
-		//Preferred date to be set.
-		String dateToSet = "01/08/2020";
-		
-		//Get current date.
-		getCurrentDateMonthAndYear();
-		System.out.println(currentDay + "  " + currentMonth + "  " + currentYear);
-		
-		//Get target date.
-		getTargetDateMonthAndYear(dateToSet);
-		System.out.println(targetDay + "  " + targetMonth + "  " + targetYear);
-		
-		//Get Jump Month.
-		CalculateHowManyMonthsToJump();
-		System.out.println(jumpMonthsBy);
-		System.out.println(increment);
+		//Click the Date field.
+		WebElement fieldDate = driver.findElement(By.xpath("//input[@id='datepicker']"));
+		fieldDate.click();
+
 	}
 	
 	
