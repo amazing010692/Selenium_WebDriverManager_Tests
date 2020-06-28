@@ -120,6 +120,10 @@ public class TestCalendarJQuery {
 		Select select = new Select(listCountry);
 		select.selectByValue("Japan");
 		
+		//Fill-out the City field.
+		WebElement fieldCity = driver.findElement(By.xpath("//input[@name='city']"));
+		fieldCity.sendKeys("Tokyo");
+		
 		//Preferred date to be set.
 		String dateToSet = "01/08/2020";
 		
