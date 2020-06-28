@@ -5,7 +5,6 @@ import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -210,11 +209,9 @@ public class TestCalendarJQuery {
 		//Clear the Date field and enter the desired date.
 		fieldDate.clear();
 		fieldDate.sendKeys(dateToSet);
-		fieldDate.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
 		System.out.println("Successfully entered the target date.");
 	}
 	
-	
-
 }
 
