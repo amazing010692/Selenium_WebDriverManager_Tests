@@ -125,7 +125,7 @@ public class TestCalendarJQuery {
 		fieldCity.sendKeys("Tokyo");
 		
 		//Fill-out the Username field.
-		WebElement fieldUsername = driver.findElement(By.xpath("//input[@name='username']"));
+		WebElement fieldUsername = driver.findElement(By.xpath("\"(//input[@name='username'])[2]"));
 		fieldUsername.sendKeys("michiko_daimon");
 		
 		//Preferred date to be set.
