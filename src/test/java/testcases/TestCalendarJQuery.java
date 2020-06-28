@@ -112,7 +112,7 @@ public class TestCalendarJQuery {
 		
 		//Fill-out the Email field.
 		WebElement fieldEmail = driver.findElement(By.xpath("//input[@name='email']"));
-		fieldPhone.sendKeys("michikodaimon@tv-asahi.co.jp");
+		fieldEmail.sendKeys("michikodaimon@tv-asahi.co.jp");
 		
 		//Preferred date to be set.
 		String dateToSet = "01/08/2020";
