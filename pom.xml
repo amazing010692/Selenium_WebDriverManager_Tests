@@ -8,6 +8,15 @@
 
 	<dependencies>
 
+		<!-- This "mail 1.4.7" jar is added manually in the src/test/resources project folder -->
+		<dependency>
+			<groupId>test</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/test/resources/mail-1.4.7.jar</systemPath>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
 		<dependency>
 			<groupId>javax.mail</groupId>
