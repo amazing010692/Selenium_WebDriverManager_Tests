@@ -8,7 +8,15 @@
 
 	<dependencies>
 
-		<!-- This "mail 1.4.7" jar is added manually in the src/test/resources project folder -->
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>4.1.7</version>
+		</dependency>
+
+		<!-- This "mail 1.4.7" jar is added manually in the src/test/resources 
+			project folder -->
 		<dependency>
 			<groupId>test</groupId>
 			<artifactId>mail</artifactId>
