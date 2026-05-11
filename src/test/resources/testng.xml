@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Selenium WebDriver Test Suite" parallel="methods" thread-count="2">
+
+    <parameter name="browser" value="chrome"/>
+
+    <test name="Browser Tests">
+        <classes>
+            <class name="testcases.InvokeChrome"/>
+            <class name="testcases.InvokeGenericBrowser"/>
+        </classes>
+    </test>
+
+    <test name="UI Interaction Tests">
+        <classes>
+            <class name="testcases.TestCheckboxes"/>
+            <class name="testcases.TestWebTable"/>
+            <class name="testcases.TestFindingElements"/>
+        </classes>
+    </test>
+
+    <test name="Screenshot Tests">
+        <classes>
+            <class name="testcases.TestScreenshotTimestamp"/>
+            <class name="testcases.TestScreenshotElement"/>
+        </classes>
+    </test>
+
+</suite>

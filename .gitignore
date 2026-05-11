@@ -1,1 +1,65 @@
+# ===========================================
+# Build Output
+# ===========================================
 /target/
+*.class
+*.jar
+*.war
+*.ear
+
+# ===========================================
+# IDE Files
+# ===========================================
+# Eclipse
+.settings/
+.classpath
+.project
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# VS Code
+.vscode/
+
+# ===========================================
+# OS Files
+# ===========================================
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# ===========================================
+# Maven
+# ===========================================
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+# ===========================================
+# Test Output
+# ===========================================
+test-output/
+target/screenshots/
+target/logs/
+*.log
+
+# ===========================================
+# Environment & Secrets
+# ===========================================
+.env
+*.env.local
+
+# ===========================================
+# Generated Screenshots (keep .gitkeep only)
+# ===========================================
+screenshot/
+screenshots/
