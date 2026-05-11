@@ -29,6 +29,7 @@ This project is a **Selenium WebDriver automation framework** that demonstrates:
 - Showcases **enterprise-grade patterns** for portfolio presentation
 
 ### Key Features
+- ✅ Page Object Model (POM) for maintainable test architecture
 - ✅ Cross-browser support (Chrome, Firefox, Edge)
 - ✅ Automatic driver management via WebDriverManager
 - ✅ Reusable base test class with setup/teardown
@@ -47,7 +48,9 @@ This project is a **Selenium WebDriver automation framework** that demonstrates:
 ### Design Patterns
 | Pattern | Purpose |
 |---------|---------|
+| Page Object Model | Encapsulates page locators and interactions |
 | Base Test | Shared WebDriver lifecycle management |
+| Base Page | Common page interaction methods |
 | Utility Classes | Reusable helpers (screenshots, waits, Excel) |
 | Configuration Reader | Externalized, environment-aware settings |
 | Data-Driven | Excel-based test data separation |
@@ -55,8 +58,8 @@ This project is a **Selenium WebDriver automation framework** that demonstrates:
 ### Application Flow
 ```
 config.properties → ConfigReader → BaseTest → Test Class
-                                       ↓
-                                  WebDriver Instance
+                                       ↓            ↓
+                                  WebDriver → Page Objects (BasePage)
                                        ↓
                               Utils (Screenshots, Waits)
 ```
@@ -89,6 +92,7 @@ config.properties → ConfigReader → BaseTest → Test Class
 │   ├── java/
 │   │   ├── base/           → Base test classes (shared setup/teardown)
 │   │   ├── config/         → Configuration readers
+│   │   ├── pages/          → Page Object Model classes (locators + actions)
 │   │   ├── testcases/      → Test classes organized by feature
 │   │   └── utils/          → Reusable utilities (screenshots, waits, Excel)
 │   └── resources/
@@ -232,7 +236,7 @@ A: No. WebDriverManager handles driver downloads automatically.
 A: Yes. Use the TestNG XML suite with `parallel="methods"`.
 
 **Q: How do I add a new test?**  
-A: Create a class in `src/test/java/testcases/` extending `BaseTest`, then use TestNG `@Test` annotations.
+A: Create a page object in `src/test/java/pages/` extending `BasePage`, then create a test class in `src/test/java/testcases/` extending `BaseTest` with TestNG `@Test` annotations.
 
 **Q: Where are screenshots saved?**  
 A: In `target/screenshots/` by default (configurable in `config.properties`).
@@ -253,7 +257,7 @@ A: In `target/screenshots/` by default (configurable in `config.properties`).
 
 | Priority | Improvement |
 |----------|-------------|
-| High | Add Page Object Model (POM) pattern |
+| ~~High~~ | ~~Add Page Object Model (POM) pattern~~ ✅ Done |
 | High | Add Allure reporting integration |
 | Medium | Add Docker containerization for test execution |
 | Medium | Add parallel execution with Selenium Grid |

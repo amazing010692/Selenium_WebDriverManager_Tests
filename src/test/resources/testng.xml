@@ -4,13 +4,6 @@
 
     <parameter name="browser" value="chrome"/>
 
-    <test name="Browser Tests">
-        <classes>
-            <class name="testcases.InvokeChrome"/>
-            <class name="testcases.InvokeGenericBrowser"/>
-        </classes>
-    </test>
-
     <test name="UI Interaction Tests">
         <classes>
             <class name="testcases.TestCheckboxes"/>

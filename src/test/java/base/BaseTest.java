@@ -13,6 +13,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import config.ConfigReader;
@@ -28,19 +29,14 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters({"browser"})
-    public void setUp(String browser) {
-        driver = createDriver(browser != null ? browser : ConfigReader.getBrowser());
+    public void setUp(@Optional String browser) {
+        String targetBrowser = (browser != null && !browser.isEmpty())
+                ? browser : ConfigReader.getBrowser();
+        driver = createDriver(targetBrowser);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigReader.getImplicitWait()));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(ConfigReader.getPageLoadTimeout()));
-        logger.info("Browser [{}] launched successfully", browser);
-    }
-
-    @BeforeMethod
-    public void setUp() {
-        if (driver == null) {
-            setUp(ConfigReader.getBrowser());
-        }
+        logger.info("Browser [{}] launched successfully", targetBrowser);
     }
 
     @AfterMethod

@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2025-01-21
+
+### Added
+- **Page Object Model (POM)** pattern with `pages/` package
+- `BasePage` abstract class with common page interaction methods
+- `CheckboxPage` page object for checkbox test interactions
+- `WebTablePage` page object for table data extraction
+- New troubleshooting entries for POM-related issues
+
+### Changed
+- Refactored `TestCheckboxes` to use POM + BaseTest (removed standalone `main()`)
+- Refactored `TestWebTable` to use POM + BaseTest (removed standalone `main()`)
+- Fixed `BaseTest` duplicate `@BeforeMethod` — consolidated into single method with `@Optional` parameter
+- Updated `testng.xml` to remove legacy standalone test classes
+- Updated `ARCHITECTURE.md` with POM documentation
+- Updated `CONTRIBUTING.md` with POM guidelines
+- Updated `TROUBLESHOOTING.md` with POM-related fixes
+
+### Removed
+- Removed legacy `InvokeChrome` and `InvokeGenericBrowser` from testng.xml (standalone classes)
+
 ## [1.0.0] - 2025-01-20
 
 ### Added
